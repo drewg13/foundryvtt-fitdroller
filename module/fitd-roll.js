@@ -5,7 +5,7 @@
 
 export async function FitDRollerPopup()
 {
-  const maxDice = game.settings.get("FitDRoller", "maxDiceCount");
+  const maxDice = game.settings.get("foundryvtt-fitdroller", "maxDiceCount");
 
   new Dialog({
     title: `${game.i18n.localize('FitDRoller.RollTitle')}`,
