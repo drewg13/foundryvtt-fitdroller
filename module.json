@@ -21,6 +21,6 @@
   "bugs": "https://github.com/drewg13/foundryvtt-fitdroller/issues",
   "url": "https://github.com/drewg13/foundryvtt-fitdroller",
 
-  "manifest": "https://github.com/drewg13/foundryvtt-fitdroller/releases/latest/download/module.json",
+  "manifest": "https://raw.githubusercontent.com/drewg13/foundryvtt-fitdroller/main/module.json",
   "download": "https://github.com/drewg13/foundryvtt-fitdroller/releases/download/v0.1.0/module.zip"
 }
