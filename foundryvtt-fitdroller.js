@@ -1,22 +1,22 @@
 // Import Modules
-import { FitDRoller } from "./module/fitd-roll.js";
+import { FitDRollerPopup } from "./module/fitd-roll.js";
 
 
 // getSceneControlButtons
 Hooks.on("renderSceneControls", async (app, html) =>
 {
-  const dice_roller = $('<li class="scene-control" title="Dice Roll"><i class="fas fa-dice"></i></li>');
+  const dice_roller = $('<li class="scene-control" title="FitD Roller"><i class="fas fa-dice"></i></li>');
   dice_roller.click(() =>
   {
-    FitDRoller();
+    FitDRollerPopup();
   });
   html.append(dice_roller);
 });
 
 Hooks.once("init", () =>
 {
-	game.settings.register("FitDRoller", "maxDiceCount", {
-		"name": game.i18n.localize("FiTDRoller.maxDiceCountName"),
+	game.settings.register("foundryvtt-fitdroller", "maxDiceCount", {
+		"name": game.i18n.localize("FitDRoller.maxDiceCountName"),
 		"hint": game.i18n.localize("FitDRoller.maxDiceCountHint"),
 		"scope": "world",
 		"config": true,
