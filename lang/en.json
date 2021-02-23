@@ -5,7 +5,7 @@
   "FitDRoller.Dice": "Dice",
   "FitDRoller.RollTitle": "Forged in the Dark Roller",
   "FitDRoller.RollTokenDescription": "Choose your dice pool. Choose your position. Choose your effect.",
-  "FiTDRoller.RollNumberOfDice": "Number of Dice",
+  "FitDRoller.RollNumberOfDice": "Number of Dice",
 
   "FitDRoller.Position": "Position",
   "FitDRoller.Effect": "Effect",
@@ -45,6 +45,6 @@
   "FitDRoller.RollPoorEffect": "Poor Effect",
   "FitDRoller.RollPoorEffectDescription": "You get a bad result or little effect.<br><br>If this is an engagement roll, you start in a <strong>desperate</strong> position.<br>Good luck!<br><br>If you're marking faction or healing clocks, mark <strong>1</strong> segment.",
 
-  "FiTDRoller.maxDiceCountName": "Maximum Dice In a Roll",
-  "FiTDRoller.maxDiceCountHint": "The maximum number of dice available in the popup"
+  "FitDRoller.maxDiceCountName": "Maximum Dice In a Roll",
+  "FitDRoller.maxDiceCountHint": "The maximum number of dice available in the popup"
 }
