@@ -1,0 +1,219 @@
+:root {
+	--almost_white: #eeefff;
+	--red: #ff0000;
+	--holoblue: #33b5e5;
+	--holobluemed: #84d2ef;
+	--holobluelt: #ade1f4;
+	--redmed: #ff6666;
+	--redlt: #ffb2b2;
+	--darkblue: #001324;
+}
+* header {
+  margin-bottom: 10px;
+}
+* ul {
+  list-style: none;
+}
+* .dialog-buttons {
+	margin-top: 5px;
+}
+* textarea {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+* td {
+  padding: 5px;
+}
+* section {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+* section > *:not(.label-stripe) {
+  margin-right: 10px;
+}
+* section > *:not(.label-stripe):last-child {
+  margin-right: 0px;
+}
+* section .grow-one {
+  flex-grow: 1;
+}
+* section .grow-two {
+  flex-grow: 2;
+}
+* section.experience {
+  margin-bottom: 0px;
+  justify-content: center;
+}
+* nav {
+  margin-bottom: 10px;
+}
+* .editor,
+* .editor-content {
+  min-height: 280px;
+}
+* .flex-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+* .flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+* .black-label {
+  background-color: #191813;
+  color: #EEEFFF;
+  font-size: 21px;
+  text-align: center;
+  padding: 0px 5px;
+  height: 30px !important;
+  text-transform: capitalize;
+}
+* .gray-label {
+  background-color: #999;
+  color: #191813;
+  font-size: 21px;
+  text-align: center;
+  padding: 0px 5px;
+  height: 30px !important;
+  text-transform: capitalize;
+}
+* .chat-label {
+  background-color: #191813;
+  color: #EEEFFF;
+  font-size: 21px;
+  text-align: center;
+  padding: 0px 5px;
+  height: 30px !important;
+  text-transform: capitalize;
+}
+* .chat-label-small {
+  background-color: #999;
+  color: #191813;
+  font-size: small;
+  text-align: center;
+  padding: 3px 5px;
+  height: 20px !important;
+}
+* .chat-label-small-red {
+  background-color: red;
+  color: #191813;
+  font-size: small;
+  text-align: center;
+  padding: 3px 5px;
+}
+* .label-stripe {
+  text-transform: uppercase;
+  background-color: #191813;
+  color: #EEEFFF;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  font-weight: bold;
+}
+* .label-stripe .hoverlink {
+  cursor: pointer;
+  transition: filter 0.1s;
+}
+* .label-stripe .hoverlink:hover {
+  filter: brightness(0.8);
+  opacity: 0.9;
+}
+* .label-stripe-red {
+  text-transform: uppercase;
+  background-color: #191813;
+  color: red;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  font-weight: bold;
+}
+* .label-stripe-gray {
+  text-transform: uppercase;
+  background-color: #92a6ad;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  font-weight: bold;
+}
+* .label-stripe-chat {
+  text-transform: uppercase;
+  background-color: #191813;
+  color: #EEEFFF;
+  margin-bottom: 10px;
+  position: relative;
+  padding-top: 3px;
+  display: flex;
+  font-weight: bold;
+  margin: 0;
+}
+* .label-stripe-chat-small {
+  text-transform: capitalize;
+  background-color: #999;
+  color: #191813;
+  position: relative;
+  padding-top: 3px;
+  display: flex;
+  font-weight: bold;
+}
+* .label-stripe-chat-small-red {
+  text-transform: capitalize;
+  background-color: red;
+  color: #191813;
+  position: relative;
+  padding-top: 3px;
+  display: flex;
+  font-weight: bold;
+}
+* .description {
+  font-style: italic;
+}
+* .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #191813;
+  color: #EEEFFF;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 9999;
+}
+* .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+* .sav-die-tooltip .die {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: large;
+  margin-top: 10px;
+}
+* .sav-die-tooltip .die.great,
+* .sav-die-tooltip .die.critical-resist,
+* .sav-die-tooltip .die.critical-success {
+  color: #12a012;
+}
+* .sav-die-tooltip .die.nodamage,
+* .sav-die-tooltip .die.standard,
+* .sav-die-tooltip .die.resist,
+* .sav-die-tooltip .die.success {
+  color: #008000;
+}
+* .sav-die-tooltip .die.malfunction,
+* .sav-die-tooltip .die.limited,
+* .sav-die-tooltip .die.partial-success {
+  color: #04578f;
+}
+* .sav-die-tooltip .die.damaged,
+* .sav-die-tooltip .die.poor,
+* .sav-die-tooltip .die.failure {
+  color: red;
+}
