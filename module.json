@@ -2,7 +2,7 @@
   "name": "foundryvtt-fitdroller",
   "title": "Forged in the Dark Roller",
   "description": "Provides a generic Dice Roller for Forged in the Dark games",
-  "author": "Andrew Garinger (agaringer#6498)",
+  "author": "megastruktur, Andrew Garinger (agaringer#6498)",
   "version": "1.0.0",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
