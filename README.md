@@ -4,7 +4,9 @@ A generic dice roller for Forged in the Dark games in FoundryVTT, based on code 
 
 ## Usage
 
-Use the icon at the bottom of the taskbar.  Pick your dice pool, position, and effect and roll.  There's a setting for controlling the max number of dice available in the drop down in Module Settings.
+Use the icon at the bottom of the taskbar.
+Pick your dice pool, position, and effect and roll.
+There's a setting for controlling the max number of dice available in the drop down in Module Settings.
 
 NEW!  Macro usage
 
