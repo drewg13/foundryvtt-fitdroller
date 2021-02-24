@@ -1,5 +1,6 @@
 <div class="dice-tooltip sav-die-tooltip">
-    <div class="chat-label-small label-stripe-chat-small">
+    {{#if attribute}}<div class="chat-label label-stripe-chat">{{attribute}}</div>{{/if}}
+	<div class="chat-label-small label-stripe-chat-small">
       {{{localize position_localize}}} | {{{localize effect_localize}}}
     </div>
 
