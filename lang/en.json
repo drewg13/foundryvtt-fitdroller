@@ -48,5 +48,9 @@
   "FitDRoller.maxDiceCountName": "Maximum Dice In a Roll",
   "FitDRoller.maxDiceCountHint": "The maximum number of dice available in the popup",
   "FitDRoller.defaultDiceCountName": "Default Number of Dice to Roll",
-  "FitDRoller.defaultDiceCountHint": "The number of dice that will start selected in the popup"
+  "FitDRoller.defaultDiceCountHint": "The number of dice that will start selected in the popup",
+  "FitDRoller.defaultPositionName": "Default Position",
+  "FitDRoller.defaultPositionHint": "The position that will start selected in the popup",
+  "FitDRoller.defaultEffectName": "Default Effect",
+  "FitDRoller.defaultEffectHint": "The effect that will start selected in the popup"
 }
