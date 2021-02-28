@@ -6,9 +6,8 @@ class Roller {
 
 async FitDRollerPopup()
 {
-  const maxDice = game.settings.get("foundryvtt-fitdroller", "maxDiceCount");
-  const defaultDice = game.settings.get("foundryvtt-fitdroller", "defaultDiceCount") + 1;
-  
+  let maxDice = game.settings.get("foundryvtt-fitdroller", "maxDiceCount");
+    
   new Dialog({
     title: `${game.i18n.localize('FitDRoller.RollTitle')}`,
     content: `
@@ -19,7 +18,8 @@ async FitDRollerPopup()
           <select id="dice" name="dice">
             ${Array(maxDice + 1).fill().map((item, i) => `<option value="${i}">${i}d</option>`).join('')}
           </select>
-          </div>
+          <script>$('#dice option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultDiceCount") + '"]').prop("selected", "selected");</script>
+		  </div>
           <div class="form-group">
           <label>${game.i18n.localize('FitDRoller.Position')}:</label>
           <select id="pos" name="pos">
@@ -249,7 +249,7 @@ Hooks.once("init", () =>
 		"name": game.i18n.localize("FitDRoller.defaultDiceCountName"),
 		"hint": game.i18n.localize("FitDRoller.defaultDiceCountHint"),
 		"scope": "world",
-		"config": false,
+		"config": true,
 		"default": 2,
 		"type": Number
 	});
