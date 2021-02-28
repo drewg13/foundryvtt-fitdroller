@@ -1,0 +1,1 @@
+1.0.1  Enable the default # of dice settings and modify the popup to pre-select it
