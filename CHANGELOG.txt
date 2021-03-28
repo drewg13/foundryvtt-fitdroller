@@ -3,3 +3,5 @@
 1.2.0  Enable the default # of dice settings and modify the popup to pre-select it
 
 1.3.0  Do the same for the default position and effect
+
+1.4.0  Updates to support 0.8.1
