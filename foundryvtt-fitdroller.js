@@ -20,22 +20,25 @@ async FitDRollerPopup() {
           <select id="dice" name="dice">
             ${Array(maxDice + 1).fill().map((item, i) => `<option value="${i}">${i}d</option>`).join('')}
           </select>
+          <script>$('#dice option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultDiceCount") + '"]').prop("selected", "selected");</script>
           </div>
           <div class="form-group">
           <label>${game.i18n.localize('FitDRoller.Position')}:</label>
           <select id="pos" name="pos">
             <option value="controlled">${game.i18n.localize('FitDRoller.PositionControlled')}</option>
-            <option value="risky" selected>${game.i18n.localize('FitDRoller.PositionRisky')}</option>
+            <option value="risky">${game.i18n.localize('FitDRoller.PositionRisky')}</option>
             <option value="desperate">${game.i18n.localize('FitDRoller.PositionDesperate')}</option>
           </select>
+          <script>$('#pos option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultPosition") + '"]').prop("selected", "selected");</script>
           </div>
           <div class="form-group">
           <label>${game.i18n.localize('FitDRoller.Effect')}:</label>
           <select id="fx" name="fx">
             <option value="limited">${game.i18n.localize('FitDRoller.EffectLimited')}</option>
-            <option value="standard" selected>${game.i18n.localize('FitDRoller.EffectStandard')}</option>
+            <option value="standard">${game.i18n.localize('FitDRoller.EffectStandard')}</option>
             <option value="great">${game.i18n.localize('FitDRoller.EffectGreat')}</option>
           </select>
+          <script>$('#fx option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultEffect") + '"]').prop("selected", "selected");</script>
         </div>
       </form>
     `,
@@ -259,9 +262,37 @@ Hooks.once("init", () => {
 		"name": game.i18n.localize("FitDRoller.defaultDiceCountName"),
 		"hint": game.i18n.localize("FitDRoller.defaultDiceCountHint"),
 		"scope": "world",
-		"config": false,
+		"config": true,
 		"default": 2,
 		"type": Number
+	});
+
+  game.settings.register("foundryvtt-fitdroller", "defaultPosition", {
+		"name": game.i18n.localize("FitDRoller.defaultPositionName"),
+		"hint": game.i18n.localize("FitDRoller.defaultPositionHint"),
+		"scope": "world",
+		"config": true,
+		"type": String,
+		"choices": {
+			"controlled": game.i18n.localize("FitDRoller.PositionControlled"),
+			"risky": game.i18n.localize("FitDRoller.PositionRisky"),
+			"desperate": game.i18n.localize("FitDRoller.PositionDesperate")
+		},
+		"default": "risky"
+	});
+
+	game.settings.register("foundryvtt-fitdroller", "defaultEffect", {
+		"name": game.i18n.localize("FitDRoller.defaultEffectName"),
+		"hint": game.i18n.localize("FitDRoller.defaultEffectHint"),
+		"scope": "world",
+		"config": true,
+		"type": String,
+		"choices": {
+			"great": game.i18n.localize("FitDRoller.EffectGreat"),
+			"standard": game.i18n.localize("FitDRoller.EffectStandard"),
+			"limited": game.i18n.localize("FitDRoller.EffectLimited")
+		},
+		"default": "standard"
 	});
 });
 
