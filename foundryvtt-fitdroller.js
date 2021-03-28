@@ -4,10 +4,12 @@ class Roller {
 * @return none
 */
 
-async FitDRollerPopup()
-{
-  let maxDice = game.settings.get("foundryvtt-fitdroller", "maxDiceCount");
-    
+
+async FitDRollerPopup() {
+
+  const maxDice = game.settings.get("foundryvtt-fitdroller", "maxDiceCount");
+  const defaultDice = game.settings.get("foundryvtt-fitdroller", "defaultDiceCount") + 1;
+
   new Dialog({
     title: `${game.i18n.localize('FitDRoller.RollTitle')}`,
     content: `
@@ -18,25 +20,22 @@ async FitDRollerPopup()
           <select id="dice" name="dice">
             ${Array(maxDice + 1).fill().map((item, i) => `<option value="${i}">${i}d</option>`).join('')}
           </select>
-          <script>$('#dice option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultDiceCount") + '"]').prop("selected", "selected");</script>
-		  </div>
+          </div>
           <div class="form-group">
           <label>${game.i18n.localize('FitDRoller.Position')}:</label>
           <select id="pos" name="pos">
             <option value="controlled">${game.i18n.localize('FitDRoller.PositionControlled')}</option>
-            <option value="risky">${game.i18n.localize('FitDRoller.PositionRisky')}</option>
+            <option value="risky" selected>${game.i18n.localize('FitDRoller.PositionRisky')}</option>
             <option value="desperate">${game.i18n.localize('FitDRoller.PositionDesperate')}</option>
           </select>
-		  <script>$('#pos option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultPosition") + '"]').prop("selected", "selected");</script>
           </div>
           <div class="form-group">
           <label>${game.i18n.localize('FitDRoller.Effect')}:</label>
           <select id="fx" name="fx">
             <option value="limited">${game.i18n.localize('FitDRoller.EffectLimited')}</option>
-            <option value="standard">${game.i18n.localize('FitDRoller.EffectStandard')}</option>
+            <option value="standard" selected>${game.i18n.localize('FitDRoller.EffectStandard')}</option>
             <option value="great">${game.i18n.localize('FitDRoller.EffectGreat')}</option>
           </select>
-		  <script>$('#fx option[value="' + game.settings.get("foundryvtt-fitdroller", "defaultEffect") + '"]').prop("selected", "selected");</script>
         </div>
       </form>
     `,
@@ -64,12 +63,16 @@ async FitDRollerPopup()
 
 /**
  * Roll Dice.
+ * @param {string} attribute arbitrary label for the roll
  * @param {int} dice_amount number of dice to roll
  * @param {string} position position
  * @param {string} effect effect
  */
-async FitDRoller(attribute = "", dice_amount, position = "risky", effect = "standard")
-{
+FitDRoller(attribute = "", dice_amount = 0, position = "risky", effect = "standard") {
+  const versionParts = game.data.version.split('.');
+  game.majorVersion = parseInt(versionParts[1]);
+  game.minorVersion = parseInt(versionParts[2]);
+
   let zeromode = false;
   // console.log(dice_amount);
   if (dice_amount < 0) { dice_amount = 0; }
@@ -77,9 +80,12 @@ async FitDRoller(attribute = "", dice_amount, position = "risky", effect = "stan
 
   const r = new Roll(`${dice_amount}d6`, {});
 
-  // show 3d Dice so Nice if enabled
-  r.roll();
-  this.showChatRollMessage(r, zeromode, attribute, position, effect);
+  if (game.majorVersion > 7) {
+    r.evaluate({async: true});
+  } else {
+    r.roll();
+  };
+  return this.showChatRollMessage(r, zeromode, attribute, position, effect);
 }
 
 /**
@@ -87,11 +93,14 @@ async FitDRoller(attribute = "", dice_amount, position = "risky", effect = "stan
  *
  * @param {Array} r array of rolls
  * @param {Boolean} zeromode whether to treat as if 0d
+ * @param {string} attribute arbitrary label for the roll
  * @param {string} position position
  * @param {string} effect effect
  */
-async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "")
-{
+async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "") {
+  const versionParts = game.data.version.split('.');
+  game.majorVersion = parseInt(versionParts[1]);
+  game.minorVersion = parseInt(versionParts[2]);
 
   const speaker = ChatMessage.getSpeaker();
   let rolls = [];
@@ -141,8 +150,11 @@ async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "
     type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     roll: r
   };
-
-  CONFIG.ChatMessage.entityClass.create(messageData, {});
+  if (game.majorVersion > 7) {
+    return CONFIG.ChatMessage.documentClass.create(messageData, {});
+  } else {
+    return CONFIG.ChatMessage.entityClass.create(messageData, {});
+  };
 }
 
 /**
@@ -155,8 +167,7 @@ async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "
  * @param {Boolean} zeromode whether to treat as if 0d
  * @returns {string} success/failure status of roll
  */
-getFitDActionRollStatus(rolls, zeromode = false)
-{
+getFitDActionRollStatus(rolls, zeromode = false) {
 
   let sorted_rolls = [];
   // Sort roll values from lowest to highest.
@@ -220,14 +231,12 @@ getFitDActionRollStatus(rolls, zeromode = false)
 }
 }
 
-Hooks.once("ready", async function()
-{
+Hooks.once("ready", () => {
 	game.fitdroller = new Roller();
 });
 
 // getSceneControlButtons
-Hooks.on("renderSceneControls", async (app, html) =>
-{
+Hooks.on("renderSceneControls", async (app, html) => {
   const dice_roller = $('<li class="scene-control" title="FitD Roller"><i class="fas fa-dice"></i></li>');
   dice_roller.click(() =>
   {
@@ -236,8 +245,7 @@ Hooks.on("renderSceneControls", async (app, html) =>
   html.append(dice_roller);
 });
 
-Hooks.once("init", () =>
-{
+Hooks.once("init", () => {
 	game.settings.register("foundryvtt-fitdroller", "maxDiceCount", {
 		"name": game.i18n.localize("FitDRoller.maxDiceCountName"),
 		"hint": game.i18n.localize("FitDRoller.maxDiceCountHint"),
@@ -246,42 +254,14 @@ Hooks.once("init", () =>
 		"default": 10,
 		"type": Number
 	});
-	
+
 	game.settings.register("foundryvtt-fitdroller", "defaultDiceCount", {
 		"name": game.i18n.localize("FitDRoller.defaultDiceCountName"),
 		"hint": game.i18n.localize("FitDRoller.defaultDiceCountHint"),
 		"scope": "world",
-		"config": true,
+		"config": false,
 		"default": 2,
 		"type": Number
-	});
-	
-	game.settings.register("foundryvtt-fitdroller", "defaultPosition", {
-		"name": game.i18n.localize("FitDRoller.defaultPositionName"),
-		"hint": game.i18n.localize("FitDRoller.defaultPositionHint"),
-		"scope": "world",
-		"config": true,
-		"type": String,
-		"choices": {
-			"controlled": game.i18n.localize("FitDRoller.PositionControlled"), 
-			"risky": game.i18n.localize("FitDRoller.PositionRisky"), 
-			"desperate": game.i18n.localize("FitDRoller.PositionDesperate")
-		},
-		"default": "risky"
-	});
-	
-	game.settings.register("foundryvtt-fitdroller", "defaultEffect", {
-		"name": game.i18n.localize("FitDRoller.defaultEffectName"),
-		"hint": game.i18n.localize("FitDRoller.defaultEffectHint"),
-		"scope": "world",
-		"config": true,
-		"type": String,
-		"choices": {
-			"great": game.i18n.localize("FitDRoller.EffectGreat"), 
-			"standard": game.i18n.localize("FitDRoller.EffectStandard"), 
-			"limited": game.i18n.localize("FitDRoller.EffectLimited")
-		},
-		"default": "standard"
 	});
 });
 
