@@ -29,10 +29,9 @@
   "FitDRoller.RollPartialSuccessPositionRisky": "You do it, but there’s a consequence: you suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you have <strong>reduced effect</strong>, you end up in a <strong>desperate</strong> position.",
   "FitDRoller.RollPartialSuccessPosition": "You do it, but there’s a consequence: you suffer <strong>severe harm</strong>, a <strong>serious complication</strong> occurs, you have <strong>reduced effect</strong>.",
   "FitDRoller.RollFailurePositionControlled": "You falter. Press on by seizing a <strong>risky</strong> opportunity, or withdraw and try a different approach.",
-  "FitDRoller.RollFailurePositionRisky": "Things go badly. You suffer <strong>harm</strong> a <strong>complication</strong> occurs, you end up in a <strong>desperate</strong> position, you <strong>lose this opportunity</strong>.",
+  "FitDRoller.RollFailurePositionRisky": "Things go badly. You suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you end up in a <strong>desperate</strong> position, you <strong>lose this opportunity</strong>.",
   "FitDRoller.RollFailurePositionDesperate": "It’s the worst outcome. You suffer <strong>severe harm</strong>, a <strong>serious complication occurs</strong>, you <strong>lose this opportunity for action</strong>.",
 
-  "FitDRoller.RollGambit": "If you didn't spend a <strong>gambit</strong> on this roll, gain one <strong>gambit</strong>.",
   "FitDRoller.RollXP": "Mark <strong>XP</strong> for the related attribute.",
   "FitDRoller.RollZeromode": "Zero Dice rolled - rolling two dice and taking the lowest",
 

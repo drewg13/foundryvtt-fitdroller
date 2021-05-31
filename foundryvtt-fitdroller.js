@@ -46,12 +46,12 @@ async FitDRollerPopup() {
       yes: {
         icon: "<i class='fas fa-check'></i>",
         label: game.i18n.localize('FitDRoller.Roll'),
-        callback: (html) =>
+        callback: async (html) =>
         {
           const dice_amount = parseInt(html.find('[name="dice"]')[0].value);
           const position = html.find('[name="pos"]')[0].value;
           const effect = html.find('[name="fx"]')[0].value;
-          this.FitDRoller("", dice_amount, position, effect);
+          await this.FitDRoller("", dice_amount, position, effect);
         }
       },
       no: {
@@ -71,30 +71,29 @@ async FitDRollerPopup() {
  * @param {string} position position
  * @param {string} effect effect
  */
-FitDRoller(attribute = "", dice_amount = 0, position = "risky", effect = "standard") {
+async FitDRoller(attribute = "", dice_amount = 0, position = "risky", effect = "standard") {
   const versionParts = game.data.version.split('.');
   game.majorVersion = parseInt(versionParts[1]);
   game.minorVersion = parseInt(versionParts[2]);
 
   let zeromode = false;
-  // console.log(dice_amount);
   if (dice_amount < 0) { dice_amount = 0; }
   if (dice_amount === 0) { zeromode = true; dice_amount = 2; }
 
   const r = new Roll(`${dice_amount}d6`, {});
 
   if (game.majorVersion > 7) {
-    r.evaluate({async: true});
+    await r.evaluate({async: true});
   } else {
     r.roll();
-  };
-  return this.showChatRollMessage(r, zeromode, attribute, position, effect);
+  }
+  return await this.showChatRollMessage( r, zeromode, attribute, position, effect );
 }
 
 /**
  * Shows Chat message.
  *
- * @param {Array} r array of rolls
+ * @param {Roll} r array of rolls
  * @param {Boolean} zeromode whether to treat as if 0d
  * @param {string} attribute arbitrary label for the roll
  * @param {string} position position
@@ -157,7 +156,7 @@ async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "
     return CONFIG.ChatMessage.documentClass.create(messageData, {});
   } else {
     return CONFIG.ChatMessage.entityClass.create(messageData, {});
-  };
+  }
 }
 
 /**
@@ -241,9 +240,8 @@ Hooks.once("ready", () => {
 // getSceneControlButtons
 Hooks.on("renderSceneControls", async (app, html) => {
   const dice_roller = $('<li class="scene-control" title="FitD Roller"><i class="fas fa-dice"></i></li>');
-  dice_roller.click(() =>
-  {
-    game.fitdroller.FitDRollerPopup();
+  dice_roller.click( async () => {
+    await game.fitdroller.FitDRollerPopup();
   });
   html.append(dice_roller);
 });
