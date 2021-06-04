@@ -15,6 +15,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "lang/es.json"
     }
   ],
   "url": "https://github.com/drewg13/foundryvtt-fitdroller",
