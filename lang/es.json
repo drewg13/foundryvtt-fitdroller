@@ -44,5 +44,9 @@
   "FitDRoller.defaultPositionName": "Posición por defecto",
   "FitDRoller.defaultPositionHint": "La posición que comenzará seleccionada en la ventana emergente",
   "FitDRoller.defaultEffectName": "Efecto predeterminado",
-  "FitDRoller.defaultEffectHint": "El efecto que comenzará seleccionado en la ventana emergente."
+  "FitDRoller.defaultEffectHint": "El efecto que comenzará seleccionado en la ventana emergente.",
+  "FitDRoller.backgroundColorName": "Dados Color de Fondo",
+  "FitDRoller.backgroundColorHint": "El color de fondo de los dados da como resultado los mensajes de chat",
+  "FitDRoller.backgroundColorGray": "gris",
+  "FitDRoller.backgroundColorBlack": "negro"
 }

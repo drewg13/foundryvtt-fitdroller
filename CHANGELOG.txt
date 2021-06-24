@@ -9,3 +9,5 @@
 1.4.1  Minor code cleanup, version bump to 0.8.6
 
 1.4.2  Added Spanish translation (thanks to felixsherpa!)
+
+1.5.0  Added choice of light or dark dice in chat messages

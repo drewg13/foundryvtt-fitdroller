@@ -1,4 +1,4 @@
-<div class="dice-tooltip sav-die-tooltip">
+<div class="dice-tooltip fitd-die-tooltip">
     {{#if attribute}}<div class="chat-label label-stripe-chat">{{attribute}}</div>{{/if}}
 	<div class="chat-label-small label-stripe-chat-small">
       {{{localize position_localize}}} | {{{localize effect_localize}}}
@@ -69,11 +69,11 @@
   {{/if}}
 
 
-
+{{ log this }}
   <ol class="dice-rolls">
     {{#each this.rolls}}
     {{#if this.result}}
-    <li class="roll die d6"{{#if (eq this.result 6)}}style="color: green;"{{else if (eq this.result 3)}}style="color: red;"{{else if (eq this.result 2)}}style="color: red;"{{else if (eq this.result 1)}}style="color: red;"{{/if}}>{{{this.result}}}</li>
+    <li class="roll die fitdd6 {{../this.color}}"{{#if (eq this.result 6)}}style="color: green;"{{else if (eq this.result 3)}}style="color: red;"{{else if (eq this.result 2)}}style="color: red;"{{else if (eq this.result 1)}}style="color: red;"{{/if}}>{{{this.result}}}</li>
     {{/if}}
     {{/each}}
   </ol>

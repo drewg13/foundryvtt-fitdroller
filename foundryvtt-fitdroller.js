@@ -115,6 +115,7 @@ async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "
   let roll_status = "";
 
   roll_status = this.getFitDActionRollStatus(rolls, zeromode);
+  let color = game.settings.get("foundryvtt-fitdroller", "backgroundColor");
 
   let position_localize = '';
   switch (position)
@@ -144,7 +145,7 @@ async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "
       effect_localize = 'FitDRoller.EffectStandard';
   }
 
-  const result = await renderTemplate("modules/foundryvtt-fitdroller/templates/fitd-roll.html", { rolls, roll_status, attribute, position, position_localize, effect, effect_localize, zeromode });
+  const result = await renderTemplate("modules/foundryvtt-fitdroller/templates/fitd-roll.html", { rolls, roll_status, attribute, position, position_localize, effect, effect_localize, zeromode, color });
 
   const messageData = {
     speaker,
@@ -247,7 +248,20 @@ Hooks.on("renderSceneControls", async (app, html) => {
 });
 
 Hooks.once("init", () => {
-	game.settings.register("foundryvtt-fitdroller", "maxDiceCount", {
+  game.settings.register("foundryvtt-fitdroller", "backgroundColor", {
+    "name": game.i18n.localize("FitDRoller.backgroundColorName"),
+    "hint": game.i18n.localize("FitDRoller.backgroundColorHint"),
+    "scope": "world",
+    "config": true,
+    "choices": {
+      "gray": game.i18n.localize("FitDRoller.backgroundColorGray"),
+      "black": game.i18n.localize("FitDRoller.backgroundColorBlack")
+    },
+    "default": "gray",
+    "type": String
+  });
+
+  game.settings.register("foundryvtt-fitdroller", "maxDiceCount", {
 		"name": game.i18n.localize("FitDRoller.maxDiceCountName"),
 		"hint": game.i18n.localize("FitDRoller.maxDiceCountHint"),
 		"scope": "world",

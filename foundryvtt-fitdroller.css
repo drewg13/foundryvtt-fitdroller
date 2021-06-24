@@ -190,30 +190,37 @@
 * .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-* .sav-die-tooltip .die {
+* .fitd-die-tooltip .die {
   font-weight: bold;
   text-transform: capitalize;
   font-size: large;
   margin-top: 10px;
 }
-* .sav-die-tooltip .die.great,
-* .sav-die-tooltip .die.critical-resist,
-* .sav-die-tooltip .die.critical-success {
+* .fitd-die-tooltip .die.great,
+* .fitd-die-tooltip .die.critical-resist,
+* .fitd-die-tooltip .die.critical-success {
   color: #12a012;
 }
-* .sav-die-tooltip .die.nodamage,
-* .sav-die-tooltip .die.standard,
-* .sav-die-tooltip .die.resist,
-* .sav-die-tooltip .die.success {
+* .fitd-die-tooltip .die.nodamage,
+* .fitd-die-tooltip .die.standard,
+* .fitd-die-tooltip .die.resist,
+* .fitd-die-tooltip .die.success {
   color: #008000;
 }
-* .sav-die-tooltip .die.malfunction,
-* .sav-die-tooltip .die.limited,
-* .sav-die-tooltip .die.partial-success {
+* .fitd-die-tooltip .die.malfunction,
+* .fitd-die-tooltip .die.limited,
+* .fitd-die-tooltip .die.partial-success {
   color: #04578f;
 }
-* .sav-die-tooltip .die.damaged,
-* .sav-die-tooltip .die.poor,
-* .sav-die-tooltip .die.failure {
+* .fitd-die-tooltip .die.damaged,
+* .fitd-die-tooltip .die.poor,
+* .fitd-die-tooltip .die.failure {
   color: red;
+}
+* .fitdd6.black {
+  background-image: url(icons/d6-black.svg) !important;
+  color: var(--almost_white) !important;
+}
+* .fitdd6.gray {
+  background-image: url(icons/d6-grey.svg) !important;
 }

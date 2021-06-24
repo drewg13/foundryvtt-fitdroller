@@ -51,5 +51,9 @@
   "FitDRoller.defaultPositionName": "Default Position",
   "FitDRoller.defaultPositionHint": "The position that will start selected in the popup",
   "FitDRoller.defaultEffectName": "Default Effect",
-  "FitDRoller.defaultEffectHint": "The effect that will start selected in the popup"
+  "FitDRoller.defaultEffectHint": "The effect that will start selected in the popup",
+  "FitDRoller.backgroundColorName": "Dice Background Color",
+  "FitDRoller.backgroundColorHint": "The background color of the dice results in the chat messages",
+  "FitDRoller.backgroundColorGray": "gray",
+  "FitDRoller.backgroundColorBlack": "black"
 }
