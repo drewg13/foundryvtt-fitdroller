@@ -72,9 +72,16 @@ async FitDRollerPopup() {
  * @param {string} effect effect
  */
 async FitDRoller(attribute = "", dice_amount = 0, position = "risky", effect = "standard") {
-  const versionParts = game.data.version.split('.');
-  game.majorVersion = parseInt(versionParts[1]);
-  game.minorVersion = parseInt(versionParts[2]);
+  let versionParts;
+  if( game.version ) {
+    versionParts = game.version.split( '.' );
+    game.majorVersion = parseInt( versionParts[0] );
+    game.minorVersion = parseInt( versionParts[1] );
+  } else {
+    versionParts = game.data.version.split( '.' );
+    game.majorVersion = parseInt( versionParts[1] );
+    game.minorVersion = parseInt( versionParts[2] );
+  }
 
   let zeromode = false;
   if (dice_amount < 0) { dice_amount = 0; }
@@ -100,9 +107,16 @@ async FitDRoller(attribute = "", dice_amount = 0, position = "risky", effect = "
  * @param {string} effect effect
  */
 async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "") {
-  const versionParts = game.data.version.split('.');
-  game.majorVersion = parseInt(versionParts[1]);
-  game.minorVersion = parseInt(versionParts[2]);
+  let versionParts;
+  if( game.version ) {
+    versionParts = game.version.split( '.' );
+    game.majorVersion = parseInt( versionParts[0] );
+    game.minorVersion = parseInt( versionParts[1] );
+  } else {
+    versionParts = game.data.version.split( '.' );
+    game.majorVersion = parseInt( versionParts[1] );
+    game.minorVersion = parseInt( versionParts[2] );
+  }
 
   const speaker = ChatMessage.getSpeaker();
   let rolls = [];

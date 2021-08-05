@@ -11,3 +11,5 @@
 1.4.2  Added Spanish translation (thanks to felixsherpa!)
 
 1.5.0  Added choice of light or dark dice in chat messages
+
+1.5.1  Fix CSS for dark dice, updates for v9 and code cleanup

@@ -217,10 +217,10 @@
 * .fitd-die-tooltip .die.failure {
   color: red;
 }
-* .fitdd6.black {
+* .dice-tooltip .dice-rolls .roll.die.fitdd6.black {
   background-image: url(icons/d6-black.svg) !important;
-  color: var(--almost_white) !important;
+  color: var(--almost_white);
 }
-* .fitdd6.gray {
+* .dice-tooltip .dice-rolls .roll.die.fitdd6.gray {
   background-image: url(icons/d6-grey.svg) !important;
 }
