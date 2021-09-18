@@ -13,3 +13,5 @@
 1.5.0  Added choice of light or dark dice in chat messages
 
 1.5.1  Fix CSS for dark dice, updates for v9 and code cleanup
+
+1.5.2  Fix for V9p2 scene controls

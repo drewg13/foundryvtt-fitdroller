@@ -258,7 +258,11 @@ Hooks.on("renderSceneControls", async (app, html) => {
   dice_roller.click( async () => {
     await game.fitdroller.FitDRollerPopup();
   });
-  html.append(dice_roller);
+  if( game.majorVersion === 9 ) {
+    html.children().append( dice_roller );
+  } else {
+    html.append( dice_roller );
+  }
 });
 
 Hooks.once("init", () => {
