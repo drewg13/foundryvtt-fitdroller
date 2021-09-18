@@ -253,13 +253,13 @@ Hooks.once("ready", () => {
 });
 
 // getSceneControlButtons
-Hooks.on("renderSceneControls", async (app, html) => {
+Hooks.on("renderSceneControls", (app, html) => {
   const dice_roller = $('<li class="scene-control" title="FitD Roller"><i class="fas fa-dice"></i></li>');
-  dice_roller.click( async () => {
+  dice_roller.on( "click", async function() {
     await game.fitdroller.FitDRollerPopup();
-  });
-  if( game.majorVersion === 9 ) {
-    html.children().append( dice_roller );
+  })
+  if( isNewerVersion( game.version, '9.220' ) ) {
+    html.children().first().append( dice_roller );
   } else {
     html.append( dice_roller );
   }

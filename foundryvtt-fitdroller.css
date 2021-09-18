@@ -8,61 +8,61 @@
 	--redlt: #ffb2b2;
 	--darkblue: #001324;
 }
-* header {
+* .fitd-die-tooltip header {
   margin-bottom: 10px;
 }
-* ul {
+* .fitd-die-tooltip ul {
   list-style: none;
 }
-* .dialog-buttons {
+* .fitd-die-tooltip .dialog-buttons {
 	margin-top: 5px;
 }
-* textarea {
+* .fitd-die-tooltip textarea {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-* td {
+* .fitd-die-tooltip td {
   padding: 5px;
 }
-* section {
+* .fitd-die-tooltip section {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-* section > *:not(.label-stripe) {
+* section > * .fitd-die-tooltip:not(.label-stripe) {
   margin-right: 10px;
 }
-* section > *:not(.label-stripe):last-child {
+* section > * .fitd-die-tooltip:not(.label-stripe):last-child {
   margin-right: 0px;
 }
-* section .grow-one {
+* .fitd-die-tooltip section .grow-one {
   flex-grow: 1;
 }
-* section .grow-two {
+* .fitd-die-tooltip section .grow-two {
   flex-grow: 2;
 }
-* section.experience {
+* .fitd-die-tooltip section.experience {
   margin-bottom: 0px;
   justify-content: center;
 }
-* nav {
+* .fitd-die-tooltip nav {
   margin-bottom: 10px;
 }
-* .editor,
-* .editor-content {
+* .fitd-die-tooltip .editor,
+* .fitd-die-tooltip .editor-content {
   min-height: 280px;
 }
-* .flex-horizontal {
+* .fitd-die-tooltip .flex-horizontal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-* .flex-vertical {
+* .fitd-die-tooltip .flex-vertical {
   display: flex;
   flex-direction: column;
 }
-* .black-label {
+* .fitd-die-tooltip .black-label {
   background-color: #191813;
   color: #EEEFFF;
   font-size: 21px;
@@ -71,7 +71,7 @@
   height: 30px !important;
   text-transform: capitalize;
 }
-* .gray-label {
+* .fitd-die-tooltip .gray-label {
   background-color: #999;
   color: #191813;
   font-size: 21px;
@@ -80,7 +80,7 @@
   height: 30px !important;
   text-transform: capitalize;
 }
-* .chat-label {
+* .fitd-die-tooltip .chat-label {
   background-color: #191813;
   color: #EEEFFF;
   font-size: 21px;
@@ -89,7 +89,7 @@
   height: 30px !important;
   text-transform: capitalize;
 }
-* .chat-label-small {
+* .fitd-die-tooltip .chat-label-small {
   background-color: #999;
   color: #191813;
   font-size: small;
@@ -97,14 +97,14 @@
   padding: 3px 5px;
   height: 20px !important;
 }
-* .chat-label-small-red {
+* .fitd-die-tooltip .chat-label-small-red {
   background-color: red;
   color: #191813;
   font-size: small;
   text-align: center;
   padding: 3px 5px;
 }
-* .label-stripe {
+* .fitd-die-tooltip .label-stripe {
   text-transform: uppercase;
   background-color: #191813;
   color: #EEEFFF;
@@ -115,15 +115,15 @@
   display: flex;
   font-weight: bold;
 }
-* .label-stripe .hoverlink {
+* .fitd-die-tooltip .label-stripe .hoverlink {
   cursor: pointer;
   transition: filter 0.1s;
 }
-* .label-stripe .hoverlink:hover {
+* .fitd-die-tooltip .label-stripe .hoverlink:hover {
   filter: brightness(0.8);
   opacity: 0.9;
 }
-* .label-stripe-red {
+* .fitd-die-tooltip .label-stripe-red {
   text-transform: uppercase;
   background-color: #191813;
   color: red;
@@ -134,7 +134,7 @@
   display: flex;
   font-weight: bold;
 }
-* .label-stripe-gray {
+* .fitd-die-tooltip .label-stripe-gray {
   text-transform: uppercase;
   background-color: #92a6ad;
   margin-bottom: 10px;
@@ -144,7 +144,7 @@
   display: flex;
   font-weight: bold;
 }
-* .label-stripe-chat {
+* .fitd-die-tooltip .label-stripe-chat {
   text-transform: uppercase;
   background-color: #191813;
   color: #EEEFFF;
@@ -155,7 +155,7 @@
   font-weight: bold;
   margin: 0;
 }
-* .label-stripe-chat-small {
+* .fitd-die-tooltip .label-stripe-chat-small {
   text-transform: capitalize;
   background-color: #999;
   color: #191813;
@@ -164,7 +164,7 @@
   display: flex;
   font-weight: bold;
 }
-* .label-stripe-chat-small-red {
+* .fitd-die-tooltip .label-stripe-chat-small-red {
   text-transform: capitalize;
   background-color: red;
   color: #191813;
@@ -173,10 +173,10 @@
   display: flex;
   font-weight: bold;
 }
-* .description {
+* .fitd-die-tooltip .description {
   font-style: italic;
 }
-* .tooltip .tooltiptext {
+* .fitd-die-tooltip .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
   background-color: #191813;
@@ -187,7 +187,7 @@
   position: absolute;
   z-index: 9999;
 }
-* .tooltip:hover .tooltiptext {
+* .fitd-die-tooltip .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 * .fitd-die-tooltip .die {
@@ -217,10 +217,10 @@
 * .fitd-die-tooltip .die.failure {
   color: red;
 }
-* .dice-tooltip .dice-rolls .roll.die.fitdd6.black {
+* .dice-tooltip.fitd-die-tooltip .dice-rolls .roll.die.fitdd6.black {
   background-image: url(icons/d6-black.svg) !important;
   color: var(--almost_white);
 }
-* .dice-tooltip .dice-rolls .roll.die.fitdd6.gray {
+* .dice-tooltip.fitd-die-tooltip .dice-rolls .roll.die.fitdd6.gray {
   background-image: url(icons/d6-grey.svg) !important;
 }

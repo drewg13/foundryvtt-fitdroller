@@ -15,3 +15,5 @@
 1.5.1  Fix CSS for dark dice, updates for v9 and code cleanup
 
 1.5.2  Fix for V9p2 scene controls
+
+1.5.3  CSS namespace cleanup and additional control fix
