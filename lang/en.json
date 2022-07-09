@@ -5,7 +5,11 @@
   "FitDRoller.Dice": "Dice",
   "FitDRoller.RollTitle": "Forged in the Dark Roller",
   "FitDRoller.RollTokenDescription": "Choose your dice pool. Choose your position. Choose your effect.",
+  "FitDRoller.TablePosEffect": "Position and Effect Table",
   "FitDRoller.RollNumberOfDice": "Number of Dice",
+  "FitDRoller.FortuneRoll": "Fortune Roll",
+  "FitDRoller.Fortune": "Fortune",
+  "FitDRoller.Action": "Action",
 
   "FitDRoller.Position": "Position",
   "FitDRoller.Effect": "Effect",
@@ -17,6 +21,8 @@
   "FitDRoller.EffectLimited": "Limited",
   "FitDRoller.EffectGreat": "Great",
   "FitDRoller.EffectStandard": "Standard",
+  "FitDRoller.EffectZero":"Zero",
+  "FitDRoller.EffectExtreme":"Extreme",
 
   "FitDRoller.RollFailure": "Failure",
   "FitDRoller.RollCriticalSuccess": "Critical Success!",
@@ -28,9 +34,9 @@
   "FitDRoller.RollPartialSuccessPositionControlled": "You hesitate. Withdraw and try a different approach, or else do it with a minor consequence: a <strong>minor complication</strong> occurs, you have <strong>reduced effect</strong>, you suffer <strong>lesser harm</strong>, you end up in a <strong>risky</strong> position.",
   "FitDRoller.RollPartialSuccessPositionRisky": "You do it, but there’s a consequence: you suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you have <strong>reduced effect</strong>, you end up in a <strong>desperate</strong> position.",
   "FitDRoller.RollPartialSuccessPosition": "You do it, but there’s a consequence: you suffer <strong>severe harm</strong>, a <strong>serious complication</strong> occurs, you have <strong>reduced effect</strong>.",
-  "FitDRoller.RollFailurePositionControlled": "You falter. Press on by seizing a <strong>risky</strong> opportunity, or withdraw and try a different approach.",
-  "FitDRoller.RollFailurePositionRisky": "Things go badly. You suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you end up in a <strong>desperate</strong> position, you <strong>lose this opportunity</strong>.",
-  "FitDRoller.RollFailurePositionDesperate": "It’s the worst outcome. You suffer <strong>severe harm</strong>, a <strong>serious complication occurs</strong>, you <strong>lose this opportunity for action</strong>.",
+  "FitDRoller.RollFailurePositionControlled": "You falter. Press on by seizing a <strong>risky</strong> opportunity, or <strong>withdraw</strong> and try a different approach.",
+  "FitDRoller.RollFailurePositionRisky": "Things go badly. You suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you end up in a <strong>desperate</strong> position, you <strong>lose this opportunity</strong> for action.",
+  "FitDRoller.RollFailurePositionDesperate": "It’s the worst outcome. You suffer <strong>severe harm</strong>, a <strong>serious complication occurs</strong>, you <strong>lose this opportunity</strong> for action.",
 
   "FitDRoller.RollXP": "Mark <strong>XP</strong> for the related attribute.",
   "FitDRoller.RollZeromode": "Zero Dice rolled - rolling two dice and taking the lowest",
@@ -43,6 +49,10 @@
   "FitDRoller.RollLimitedEffectDescription": "You get a mixed result or a partial effect.<br><br>If this is an engagement roll, you start in a <strong>risky</strong> position.<br><br>If you're marking faction or healing clocks, mark <strong>2</strong> segments.",
   "FitDRoller.RollPoorEffect": "Poor Effect",
   "FitDRoller.RollPoorEffectDescription": "You get a bad result or little effect.<br><br>If this is an engagement roll, you start in a <strong>desperate</strong> position.<br>Good luck!<br><br>If you're marking faction or healing clocks, mark <strong>1</strong> segment.",
+  "FitDRoller.RollZeroEffect": "Zero Effect",
+  "FitDRoller.RollZeroEffectDescription": "You get a terrible result or zero effect.<br><br>If you're marking faction or healing clocks, mark <strong>0</strong> segments.",
+  "FitDRoller.RollExtremeEffect": "Extreme Effect!",
+  "FitDRoller.RollExtremeEffectDescription": "You get an exceptional result or an extreme effect.<br><br>If this is an engagement roll, you may have already overcome multiple obstacles and are in a <strong>controlled</strong> position for whatever is next.<br><br>If you're marking faction or healing clocks, mark <strong>5</strong> segments.",
 
   "FitDRoller.maxDiceCountName": "Maximum Dice In a Roll",
   "FitDRoller.maxDiceCountHint": "The maximum number of dice available in the popup",
@@ -55,5 +65,14 @@
   "FitDRoller.backgroundColorName": "Dice Background Color",
   "FitDRoller.backgroundColorHint": "The background color of the dice results in the chat messages",
   "FitDRoller.backgroundColorGray": "gray",
-  "FitDRoller.backgroundColorBlack": "black"
+  "FitDRoller.backgroundColorBlack": "black",
+
+  "FitDRoller.FitDRollerShortcutName": "Forged in the Dark Roller",
+  "FitDRoller.FitDRollerShortcutHint": "This will trigger Forged in the Dark Roller.",
+
+  "FitDRoller.FitDRollerRollOverText": "Roll",
+
+  "FitDRoller.newInterface": "New Interface",
+  "FitDRoller.newInterfaceHint": "Use new GUI interface for roller",
+  "FitDRoller.RollPurpose": "Roll Purpose"
 }

@@ -1,8 +1,11 @@
 <div class="dice-tooltip fitd-die-tooltip">
-    {{#if attribute}}<div class="chat-label label-stripe-chat">{{attribute}}</div>{{/if}}
-	<div class="chat-label-small label-stripe-chat-small">
+  {{#if attribute}}<div class="chat-label label-stripe-chat">{{attribute}}</div>{{/if}}
+  {{#if purpose}}<div class="chat-label-small label-stripe-chat-small">{{purpose}}</div>{{/if}}
+  {{#if (ne attribute "fortune")}}
+    <div class="chat-label-small label-stripe-chat-small">
       {{{localize position_localize}}} | {{{localize effect_localize}}}
     </div>
+  {{/if}}
 
   {{#if zeromode}}
     <div class="chat-label-small-red label-stripe-chat-small-red">
@@ -14,7 +17,7 @@
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollCriticalSuccess"}}</div>
   <div class="description">
     <p>{{{localize "FitDRoller.RollDoWithIncreasedEffect"}}}</p>
-	
+
 	{{#if (eq position "desperate")}}
 	<p>{{{localize "FitDRoller.RollXP"}}}</p>
 	{{/if}}
@@ -25,7 +28,7 @@
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollSuccess"}}</div>
   <div class="description">
     <p>{{{localize "FitDRoller.RollDo"}}}</p>
-    
+
 	{{#if (eq position "desperate")}}
 	<p>{{{localize "FitDRoller.RollXP"}}}</p>
 	{{/if}}
@@ -65,6 +68,42 @@
 	{{#if (eq position "desperate")}}
 	<p>{{{localize "FitDRoller.RollXP"}}}</p>
 	{{/if}}
+  </div>
+  {{/if}}
+
+  {{#if (eq roll_status "great")}}
+  <div class="die {{roll_status}}">{{localize "FitDRoller.RollGreatEffect"}}</div>
+  <div class="description">
+    <p>
+      {{{localize "FitDRoller.RollGreatEffectDescription"}}}
+    </p>
+  </div>
+  {{/if}}
+
+  {{#if (eq roll_status "standard")}}
+  <div class="die {{roll_status}}">{{localize "FitDRoller.RollStandardEffect"}}</div>
+  <div class="description">
+    <p>
+      {{{localize "FitDRoller.RollStandardEffectDescription"}}}
+    </p>
+  </div>
+  {{/if}}
+
+  {{#if (eq roll_status "limited")}}
+  <div class="die {{roll_status}}">{{localize "FitDRoller.RollLimitedEffect"}}</div>
+  <div class="description">
+    <p>
+      {{{localize "FitDRoller.RollLimitedEffectDescription"}}}
+    </p>
+  </div>
+  {{/if}}
+
+  {{#if (eq roll_status "zero")}}
+  <div class="die {{roll_status}}">{{localize "FitDRoller.RollZeroEffect"}}</div>
+  <div class="description">
+    <p>
+      {{{localize "FitDRoller.RollZeroEffectDescription"}}}
+    </p>
   </div>
   {{/if}}
 

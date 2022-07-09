@@ -5,20 +5,30 @@
   "FitDRoller.Dice": "Dado",
   "FitDRoller.RollTitle": "Forged in the Dark Roller",
   "FitDRoller.RollTokenDescription": "Selecciona tu reserva de dados. Selecciona tu posición. Seleccina el efecto.",
+  "FitDRoller.TablePosEffect": "Tabla de posiciones y efectos",
   "FitDRoller.RollNumberOfDice": "Número de dados",
+  "FitDRoller.FortuneRoll": "Lanzar Suerte",
+  "FitDRoller.Fortune": "Suerte",
+  "FitDRoller.Action": "Acción",
+
   "FitDRoller.Position": "Posición",
   "FitDRoller.Effect": "Efecto",
   "FitDRoller.Modifier": "Modificador",
+
   "FitDRoller.PositionControlled": "Controlada",
   "FitDRoller.PositionRisky": "Arriesgada",
   "FitDRoller.PositionDesperate": "Desesperada",
   "FitDRoller.EffectLimited": "Limitado",
   "FitDRoller.EffectGreat": "Estupendo",
   "FitDRoller.EffectStandard": "Estándar",
+  "FitDRoller.EffectZero":"Cero",
+  "FitDRoller.EffectExtreme":"Extremo",
+
   "FitDRoller.RollFailure": "Falla",
   "FitDRoller.RollCriticalSuccess": "¡Éxito crítico!",
   "FitDRoller.RollSuccess": "Éxito",
   "FitDRoller.RollPartialSuccess": "Éxito parcial",
+
   "FitDRoller.RollDoWithIncreasedEffect": "Lo haces con <strong> mayor efecto </strong>.",
   "FitDRoller.RollDo": "Lo haces",
   "FitDRoller.RollPartialSuccessPositionControlled": "Vacilas. Retírate y prueba un enfoque diferente, o házlo con una consecuencia menor: se produce una <strong> complicación menor </strong>, tiene un <strong> efecto reducido </strong>, sufre <strong> un daño menor </strong>, terminas en una posición <strong> arriesgada </strong>.",
@@ -27,8 +37,10 @@
   "FitDRoller.RollFailurePositionControlled": "Vacilas. Insiste, aprovechando una oportunidad <strong> arriesgada </strong> o retírate y pruebaun enfoque diferente.",
   "FitDRoller.RollFailurePositionRisky": "Las cosas van mal. Sufres <strong> daño </strong>, se produce una <strong> complicación </strong>, acabas en una <strong> situación desesperada </strong>, <strong> pierdes esta oportunidad </strong>.",
   "FitDRoller.RollFailurePositionDesperate": "Es el peor resultado. Sufres <strong> daños graves </strong>, <strong> se produce una complicación grave </strong>, <strong> pierdes esta oportunidad de acción </strong>.",
+
   "FitDRoller.RollXP": "Marca <strong> XP </strong> para el atributo relacionado.",
   "FitDRoller.RollZeromode": "Cero dados lanzados: tira dos dados y toma el más bajo",
+
   "FitDRoller.RollGreatEffect": "Gran efecto",
   "FitDRoller.RollGreatEffectDescription": "Obtienes un resultado excepcional o un efecto extremo. <br> <br> Si se trata de una tirada de implicación, ya has superado el primer obstáculo y estás en una posición <strong> controlada </strong> para lo que venga a continuación. <br> <br> Si estás marcando relojes de facción o curación, marca <strong> 5 </strong> segmentos.",
   "FitDRoller.RollStandardEffect": "Efecto estándar",
@@ -37,6 +49,11 @@
   "FitDRoller.RollLimitedEffectDescription": "Obtienes un resultado mixto o un efecto parcial. <br> <br> Si se trata de una tirada de implicación, comienzas en una posición <strong> arriesgada </strong>. <br> <br> Si estás marcando relojes de facción o curación, marca <strong> 2 </strong> segmentos.",
   "FitDRoller.RollPoorEffect": "Efecto pobre",
   "FitDRoller.RollPoorEffectDescription": "Obtienes un mal resultado o poco efecto. <br> <br> Si se trata de una tirada de implicación, comienzas en una posición <strong> desesperada </strong>. <br> ¡Buena suerte! <br> <br> Si Estás marcando relojes de facción o curación, marca <strong> 1 </strong> segmento.",
+  "FitDRoller.RollZeroEffect": "Sin efecto",
+  "FitDRoller.RollZeroEffectDescription": "Obtienes un mal resultado o cero efecto.<br> <br>Si es una tirada de compromiso, comienzas en una <strong>posición desesperada</strong>.<br>¡Buena suerte!< br ><br>Si estás marcando los relojes de curación o de facción, marca <strong>0</strong> segmentos.",
+  "FitDRoller.RollExtremeEffect": "¡Efecto extremo!",
+  "FitDRoller.RollExtremeEffectDescription": "Obtienes un resultado excepcional o un efecto extremo.<br><br>Si se trata de una tirada de implicación, ya debes haber superado varios obstáculos y estar en una <strong>posición controlada</strong> para lo que sigue.<br><br>Si estás marcando los relojes de curación o de facción, marca <strong>5</strong> segmentos.",
+
   "FitDRoller.maxDiceCountName": "Dados máximos en una tirada",
   "FitDRoller.maxDiceCountHint": "El número máximo de dados disponibles en la ventana emergente.",
   "FitDRoller.defaultDiceCountName": "Número predeterminado de dados para tirar",
@@ -48,5 +65,14 @@
   "FitDRoller.backgroundColorName": "Dados Color de Fondo",
   "FitDRoller.backgroundColorHint": "El color de fondo de los dados da como resultado los mensajes de chat",
   "FitDRoller.backgroundColorGray": "gris",
-  "FitDRoller.backgroundColorBlack": "negro"
+  "FitDRoller.backgroundColorBlack": "negro",
+
+  "FitDRoller.FitDRollerShortcutName": "Tirador de Dados Forged in the Dark",
+  "FitDRoller.FitDRollerShortcutHint": "Esto activará la tirada de dados para Forged in the Dark",
+
+  "FitDRoller.FitDRollerRollOverText": "Roll",
+
+  "FitDRoller.newInterface": "Nueva Interfaz",
+  "FitDRoller.newInterfaceHint": "Usar nueva interfaz para lanzar dados",
+  "FitDRoller.RollPurpose": "Propósito de lanzar"
 }

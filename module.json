@@ -1,15 +1,28 @@
 {
   "name": "foundryvtt-fitdroller",
+  "id": "foundryvtt-fitdroller",
   "title": "Forged in the Dark Roller",
   "description": "Provides a generic Dice Roller for Forged in the Dark games",
-  "authors": ["megastruktur", "Andrew Garinger (agaringer#6498)"],
-  "version": "1.5.3",
+  "author": "megastruktur, Andrew Garinger (agaringer#6498), Mestre Digital, Gus",
+  "authors": [
+    {"name": "megastruktur"},
+    {"name": "Andrew Garinger", "discord": "agaringer#6498"},
+    {"name": "Mestre Digital"},
+    {"name": "Gus"}
+  ],
+  "version": "1.6.0",
   "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "9.224",
-
-  "styles": ["foundryvtt-fitdroller.css"],
-  "esmodules": ["foundryvtt-fitdroller.js"],
-
+  "compatibleCoreVersion": "10.272",
+  "compatibility": {
+    "minimum": "0.7.5",
+    "verified": "10.272"
+  },
+  "url": "https://github.com/drewg13/foundryvtt-fitdroller",
+  "manifest": "https://raw.githubusercontent.com/drewg13/foundryvtt-fitdroller/main/module.json",
+  "download": "https://github.com/drewg13/foundryvtt-fitdroller/archive/v1.6.0.zip",
+  "bugs": "https://github.com/drewg13/foundryvtt-fitdroller/issues",
+  "styles": ["styles/fitdroller.css"],
+  "esmodules": ["scripts/main.js"],
   "languages": [
     {
       "lang": "en",
@@ -18,12 +31,13 @@
     },
     {
       "lang": "es",
-      "name": "Spanish",
+      "name": "Español",
       "path": "lang/es.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "pt-br.json"
     }
-  ],
-  "url": "https://github.com/drewg13/foundryvtt-fitdroller",
-  "manifest": "https://raw.githubusercontent.com/drewg13/foundryvtt-fitdroller/main/module.json",
-  "download": "https://github.com/drewg13/foundryvtt-fitdroller/archive/v1.5.3.zip",
-  "bugs": "https://github.com/drewg13/foundryvtt-fitdroller/issues"
+  ]
 }

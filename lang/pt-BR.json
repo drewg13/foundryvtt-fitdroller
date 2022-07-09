@@ -1,0 +1,80 @@
+{
+  "FitDRoller.Roll": "Rolar",
+  "FitDRoller.Cancel": "Cancelar",
+  "FitDRoller.Close": "Fechar",
+  "FitDRoller.Dice": "Dados",
+  "FitDRoller.RollTitle": "Forged in the Dark Roller",
+  "FitDRoller.RollTokenDescription": "Escolha a quantidade de dados. Escolha sua posição. Escolha o seu efeito.",
+  "FitDRoller.TablePosEffect": "Posição e Efeito",
+  "FitDRoller.RollNumberOfDice": "Número de Dados",
+  "FitDRoller.FortuneRoll": "Rolar Sorte",
+  "FitDRoller.Fortune": "Sorte",
+  "FitDRoller.Action": "Ação",
+
+  "FitDRoller.Position": "Posição",
+  "FitDRoller.Effect": "Efeito",
+  "FitDRoller.Modifier": "Modificador",
+
+  "FitDRoller.PositionControlled": "Controlada",
+  "FitDRoller.PositionRisky": "Arriscada",
+  "FitDRoller.PositionDesperate": "Desesperada",
+  "FitDRoller.EffectLimited": "Limitado",
+  "FitDRoller.EffectGreat": "Excelente",
+  "FitDRoller.EffectStandard": "Padrão",
+  "FitDRoller.EffectZero":"Zero",
+  "FitDRoller.EffectExtreme":"Extremo",
+
+  "FitDRoller.RollFailure": "Fracasso",
+  "FitDRoller.RollCriticalSuccess": "Sucesso Crítico!",
+  "FitDRoller.RollSuccess": "Sucesso",
+  "FitDRoller.RollPartialSuccess": "Sucesso Parcial",
+
+  "FitDRoller.RollDoWithIncreasedEffect": "Você faz isso com <strong> aumento do efeito </strong>.",
+  "FitDRoller.RollDo": "Você consegue.",
+  "FitDRoller.RollPartialSuccessPositionControlled": "Você hesita. Volte atrás e tente uma abordagem diferente, ou faça-o com uma pequena consequência: <ul><li><strong>- uma complicação menor </strong> ocorre</li><li>- você tem <strong> Efeito reduzido </strong></li><li>- você sofre <strong> um dano menor (1)</strong ></li><li>- você acaba em uma <strong>posição arriscada </strong></li><ul>",
+  "FitDRoller.RollPartialSuccessPositionRisky": "Você consegue, mas há uma conseqüência:<ul><li>- você sofre <strong> Ferimentos</strong></li><li>- uma <strong> complicação </strong> ocorre</li><li>- você tem <strong> efeito reduzido </strong></li><li>- você acaba em uma <strong> posição desesperada </strong></li><ul>",
+  "FitDRoller.RollPartialSuccessPosition": "Você consegue, mas há uma conseqüência:<ul><li>- você sofre <strong>danos graves </strong></li><li>- uma <strong>complicação séria </strong> ocorre</li><li>- você tem <strong> efeito reduzido </strong>",
+  "FitDRoller.RollFailurePositionControlled": "Você vacilou.<ul><li>- insista na mesma ação com uma oportunidade arriscada</li><li>- perca a oportunidade e tente outra abordagem</li><ul>",
+  "FitDRoller.RollFailurePositionRisky": "As coisas vão mal.<ul><li>-Você sofre <strong> Ferimento</strong></li><li>- uma <strong> complicação </strong> ocorre</li><li>- você acaba em uma <strong>posição desesperada </strong></li><li>- você <strong> perde esta oportunidade </strong></li><ul>",
+  "FitDRoller.RollFailurePositionDesperate": "É o pior resultado.<ul><li>- você sofre <strong> danos graves</strong></li><li>- uma complicação séria</strong> ocorre </li><li>- você <strong> perde esta oportunidade</strong> de agir</li><ul>",
+
+  "FitDRoller.RollXP": "Marque <strong> XP </strong> Para o atributo relacionado.",
+  "FitDRoller.RollZeromode": "Zero atributos rolados - rolando dois dados e pegando o mais baixo",
+
+  "FitDRoller.RollGreatEffect": "Efeito Excelente",
+  "FitDRoller.RollGreatEffectDescription": "Você obtém um resultado excepcional ou um efeito extremo.<br><br>Se este for um teste de engajamento, você já deve ter superado vários obstáculos e está em uma <strong>posição controlada</strong> para o que vem a seguir.<br ><br>Se você estiver marcando relógios de facção ou de cura, marque <strong>5</strong> segmentos.",
+  "FitDRoller.RollStandardEffect": "Efeito Padrão",
+  "FitDRoller.RollStandardEffectDescription": "Você obtém um bom resultado ou efeito total.<br><br>Se este for um teste de engajamento, você começa em uma <strong>posição controlada</strong>.<br><br>Se você estiver marcando facção ou relógios de cura, marque <strong>3</strong> segmentos.",
+  "FitDRoller.RollLimitedEffect": "Efeito Limitado",
+  "FitDRoller.RollLimitedEffectDescription": "Você obtém um resultado misto ou um efeito parcial.<br><br>Se for uma rolagem de engajamento, você começa em uma posição <strong>arriscada</strong>.<br><br>Se estiver marcando facção ou relógios de cura, marque <strong>2</strong> segmentos.",
+  "FitDRoller.RollPoorEffect": "Efeito Ruim",
+  "FitDRoller.RollPoorEffectDescription": "Você obtém um resultado ruim ou pouco efeito.<br><br>Se este for um teste de engajamento, você começa em uma <strong>posição desesperada</strong>.<br>Boa sorte!<br><br>Se você está marcando relógios de facção ou de cura, marque <strong>1</strong> segmento.",
+  "FitDRoller.RollZeroEffect": "Nenhum Efeito",
+  "FitDRoller.RollZeroEffectDescription": "Você obtém um resultado ruim ou efeito zero.<br><br>Se for um teste de engajamento, você começa em uma <strong>posição desesperada</strong>.<br>Boa sorte!<br><br>Se você estiver marcando relógios de facção ou de cura, marque <strong>0</strong> segmentos.",
+  "FitDRoller.RollExtremeEffect": "Efeito extremo!",
+  "FitDRoller.RollExtremeEffectDescription": "Você obtém um resultado excepcional ou um efeito extremo.<br><br>Se este for um teste de engajamento, você já deve ter superado vários obstáculos e está em uma <strong>posição controlada</strong> para o que vem a seguir.<br ><br>Se você estiver marcando relógios de facção ou de cura, marque <strong>5</strong> segmentos.",
+
+
+
+  "FitDRoller.maxDiceCountName": "Número máximo de dados em uma rolagem",
+  "FitDRoller.maxDiceCountHint": "O número máximo de dados disponível no popup",
+  "FitDRoller.defaultDiceCountName": "Número Padrão de Dados para Rolar",
+  "FitDRoller.defaultDiceCountHint": "A quantidade de dados que estará pré-selecionada no popup",
+  "FitDRoller.defaultPositionName": "Posição inicial",
+  "FitDRoller.defaultPositionHint": "A posição pré-selecionada inicialmente no popup",
+  "FitDRoller.defaultEffectName": "Efeito inicial",
+  "FitDRoller.defaultEffectHint": "O efeito pré-selecionado inicialmente no popoup",
+  "FitDRoller.backgroundColorName": "Cor de Fundo do Dado",
+  "FitDRoller.backgroundColorHint": "A cor de fundo dos resultados dos dados nas mensagens de chat",
+  "FitDRoller.backgroundColorGray": "cinza",
+  "FitDRoller.backgroundColorBlack": "preto",
+
+  "FitDRoller.FitDRollerShortcutName": "Painel de Rolagem: Forged in the Dark",
+  "FitDRoller.FitDRollerShortcutHint": "Mostra o painel de rolagem dedicado aos sistemas Forged in the Dark",
+
+  "FitDRoller.FitDRollerRollOverText": "Rola",
+
+  "FitDRoller.newInterface": "Nova Interface",
+  "FitDRoller.newInterfaceHint": "Usar nova interface gráfica para o painel de rolagem",
+  "FitDRoller.RollPurpose": "Propósito de rolagem"
+}

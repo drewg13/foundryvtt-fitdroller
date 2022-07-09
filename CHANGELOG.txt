@@ -17,3 +17,5 @@
 1.5.2  Fix for V9p2 scene controls
 
 1.5.3  CSS namespace cleanup and additional control fix
+
+1.6.0  Verified working under V10d1, updates to manifest, added Zero and Extreme effects, new interface option from Mestre Digital and Gus, added Brazilian Portuguese translation, added 'R' keybind, added Fortune rolls (ignore position and effect)
