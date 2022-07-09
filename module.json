@@ -10,7 +10,7 @@
     {"name": "Mestre Digital"},
     {"name": "Gus"}
   ],
-  "version": "1.6.0",
+  "version": "1.6.1",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "10.272",
   "compatibility": {
@@ -19,7 +19,7 @@
   },
   "url": "https://github.com/drewg13/foundryvtt-fitdroller",
   "manifest": "https://raw.githubusercontent.com/drewg13/foundryvtt-fitdroller/main/module.json",
-  "download": "https://github.com/drewg13/foundryvtt-fitdroller/archive/v1.6.0.zip",
+  "download": "https://github.com/drewg13/foundryvtt-fitdroller/archive/v1.6.1.zip",
   "bugs": "https://github.com/drewg13/foundryvtt-fitdroller/issues",
   "styles": ["styles/fitdroller.css"],
   "esmodules": ["scripts/main.js"],
@@ -37,7 +37,7 @@
     {
       "lang": "pt-BR",
       "name": "Português (Brasil)",
-      "path": "pt-br.json"
+      "path": "lang/pt-BR.json"
     }
   ]
 }
