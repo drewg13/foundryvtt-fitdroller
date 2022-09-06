@@ -2,7 +2,7 @@ import Roller from "./fitdroller.js";
 const moduleName = "foundryvtt-fitdroller";
 
 Hooks.once("ready", () => {
-  game.fitdroller = new Roller();
+
 });
 
 // getSceneControlButtons
@@ -48,7 +48,8 @@ Hooks.once("init", () => {
     "scope": "world",
     "config": true,
     "default": 2,
-    "type": Number
+    "type": Number,
+    "onChange": function(){ game.fitdroller = new Roller(); }
   });
 
   game.settings.register( moduleName, "defaultPosition", {
@@ -62,7 +63,8 @@ Hooks.once("init", () => {
       "risky": game.i18n.localize("FitDRoller.PositionRisky"),
       "desperate": game.i18n.localize("FitDRoller.PositionDesperate")
     },
-    "default": "risky"
+    "default": "risky",
+    "onChange": function(){ game.fitdroller = new Roller(); }
   });
 
   game.settings.register( moduleName, "defaultEffect", {
@@ -78,7 +80,8 @@ Hooks.once("init", () => {
       "limited": game.i18n.localize("FitDRoller.EffectLimited"),
       "zero": game.i18n.localize("FitDRoller.EffectZero"),
     },
-    "default": "standard"
+    "default": "standard",
+    "onChange": function(){ game.fitdroller = new Roller(); }
   });
 
   game.settings.register( moduleName, "newInterface", {
@@ -102,6 +105,8 @@ Hooks.once("init", () => {
     reservedModifiers: [],
     precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
   });
+
+  game.fitdroller = new Roller();
 });
 
 console.log("FitDRoller | Forged in the Dark Dice Roller loaded");

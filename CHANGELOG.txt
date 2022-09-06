@@ -19,3 +19,7 @@
 1.5.3  CSS namespace cleanup and additional control fix
 
 1.6.0  Verified working under V10d1, updates to manifest, added Zero and Extreme effects, new interface option from Mestre Digital and Gus, added Brazilian Portuguese translation, added 'R' keybind, added Fortune rolls (ignore position and effect)
+
+1.6.1  Fixed pt-BR translation
+
+1.6.2  Additional V10 fixes, new interface fixes, Roll Purpose field label correction

@@ -1,11 +1,11 @@
 <div class="dice-tooltip fitd-die-tooltip">
   {{#if attribute}}<div class="chat-label label-stripe-chat">{{attribute}}</div>{{/if}}
-  {{#if purpose}}<div class="chat-label-small label-stripe-chat-small">{{purpose}}</div>{{/if}}
   {{#if (ne attribute "fortune")}}
     <div class="chat-label-small label-stripe-chat-small">
       {{{localize position_localize}}} | {{{localize effect_localize}}}
     </div>
   {{/if}}
+  {{#if purpose}}<div class="chat-label-small label-stripe-chat-small">{{purpose}}</div>{{/if}}
 
   {{#if zeromode}}
     <div class="chat-label-small-red label-stripe-chat-small-red">
