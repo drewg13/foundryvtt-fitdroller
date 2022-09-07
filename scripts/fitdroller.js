@@ -5,21 +5,15 @@ export default class Roller {
   */
   constructor() {
     this.moduleName = "foundryvtt-fitdroller";
-    this.defaultDice = game.settings.get( this.moduleName, "defaultDiceCount");
-    this.defaultPosition = game.settings.get( this.moduleName, "defaultPosition");
-    this.defaultEffect = game.settings.get( this.moduleName, "defaultEffect");
   }
 
   async FitDRollerPopup() {
 
-    const maxDice = game.settings.get( this.moduleName, "maxDiceCount" );
     const newInterface = game.settings.get( this.moduleName, "newInterface" );
 
     if( !newInterface ) {
-      new Dialog( {
-        title: `${ game.i18n.localize( 'FitDRoller.RollTitle' ) }`,
-        content: `
-          <h2>${ game.i18n.localize( 'FitDRoller.Roll' ) }</h2>
+      let htmlContent = `
+        <h2>${ game.i18n.localize( 'FitDRoller.Roll' ) }</h2>
           <form>
             <div class="form-group">
               <label for="roll-purpose">${game.i18n.localize("FitDRoller.RollPurpose")}:</label>
@@ -28,7 +22,7 @@ export default class Roller {
             <div class="form-group">
               <label>${ game.i18n.localize( 'FitDRoller.RollNumberOfDice' ) }:</label>
               <select id="dice" name="dice">
-                ${ Array( maxDice + 1 ).fill().map( ( item, i ) => `<option value="${ i }">${ i }d</option>` ).join( '' ) }
+                ${ Array( game.fitdroller.maxDice + 1 ).fill().map( ( item, i ) => `<option value="${ i }">${ i }d</option>` ).join( '' ) }
               </select>
               <script>
                 $('#dice option[value="' + game.fitdroller.defaultDice + '"]').prop("selected", "selected");
@@ -47,6 +41,9 @@ export default class Roller {
             </div>
             <div class="form-group">
               <label>${ game.i18n.localize( 'FitDRoller.Effect' ) }:</label>
+      `
+      if( game.fitdroller.useExtreme ){
+        htmlContent += `
               <select id="fx" name="fx">
                 <option value="zero">${ game.i18n.localize( 'FitDRoller.EffectZero' ) }</option>
                 <option value="limited">${ game.i18n.localize( 'FitDRoller.EffectLimited' ) }</option>
@@ -54,10 +51,27 @@ export default class Roller {
                 <option value="great">${ game.i18n.localize( 'FitDRoller.EffectGreat' ) }</option>
                 <option value="extreme">${ game.i18n.localize( 'FitDRoller.EffectExtreme' ) }</option>
               </select>
+        `;
+      } else {
+        htmlContent += `
+              <select id="fx" name="fx">
+                <option value="zero">${ game.i18n.localize( 'FitDRoller.EffectZero' ) }</option>
+                <option value="limited">${ game.i18n.localize( 'FitDRoller.EffectLimited' ) }</option>
+                <option value="standard">${ game.i18n.localize( 'FitDRoller.EffectStandard' ) }</option>
+                <option value="great">${ game.i18n.localize( 'FitDRoller.EffectGreat' ) }</option>
+              </select>
+        `
+      }
+
+      htmlContent += `  
               <script>$('#fx option[value="' + game.fitdroller.defaultEffect + '"]').prop("selected", "selected");</script>
             </div>
           </form>
-        `,
+      `;
+
+      new Dialog( {
+        title: `${ game.i18n.localize( 'FitDRoller.RollTitle' ) }`,
+        content: htmlContent,
         buttons: {
           action: {
             icon: "<i class='fas fa-running'></i>",
@@ -87,11 +101,10 @@ export default class Roller {
         default: "action",
       } ).render( true );
     } else {
-      let htmlContent = await renderTemplate( "modules/" + this.moduleName + "/templates/roll-dialog.html", {} );
-      // hacky as hell, but using jQuery in the html doesn't change with the setting
-      let dice = this.defaultDice > 6 ? 6 : this.defaultDice;
+      let htmlContent = await renderTemplate( "modules/" + this.moduleName + "/templates/roll-dialog.html", { numDice: game.fitdroller.maxDice, useExtreme: game.fitdroller.useExtreme } );
+
       htmlContent = new DOMParser().parseFromString(htmlContent, "text/html");
-      htmlContent.getElementById( dice + "d" ).setAttribute("checked", "");
+      htmlContent.getElementById( game.fitdroller.defaultDice + "d" ).setAttribute("checked", "");
       htmlContent = htmlContent.querySelector("form").parentElement.innerHTML;
 
       new Dialog( {
@@ -191,7 +204,7 @@ export default class Roller {
    * @param {string} effect effect
    * @param {string} purpose purpose
    */
-  async FitDRoller( attribute = "", dice_amount = this.defaultDice, position = this.defaultPosition, effect = this.defaultEffect, purpose = "" ){
+  async FitDRoller( attribute = "", dice_amount = game.fitdroller.defaultDice, position = game.fitdroller.defaultPosition, effect = game.fitdroller.defaultEffect, purpose = "" ){
     let versionParts;
     if( game.version ) {
       versionParts = game.version.split( '.' );

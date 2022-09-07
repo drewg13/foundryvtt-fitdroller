@@ -5,20 +5,36 @@ Hooks.once("ready", () => {
 
 });
 
-// getSceneControlButtons
-Hooks.on("renderSceneControls", (app, html) => {
-  const dice_roller = $('<li class="scene-control" title="FitD Roller"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 72.18 72.18"><polygon points="45.81 22.51 46.72 24.21 46.72 47.97 45.77 49.72 56.07 49.72 56.92 47.87 56.92 24.36 55.97 22.51 45.81 22.51" fill="f0f0e0"/><path d="M-235.33,12.83h-62a5.07,5.07,0,0,0-5.07,5.06V79.94A5.07,5.07,0,0,0-297.38,85h62a5.06,5.06,0,0,0,5.06-5.07v-62A5.06,5.06,0,0,0-235.33,12.83Zm-34.15,25.66-5.45-3.15H-285l.9,1.7v7.85h3.4l5.9-3.35v12.6l-5.95-3.3h-3.35v11.9l3.1,5.71h-14.31l3.1-5.71V34.89l-3.1-5.5h25.86Zm32.1,24-3.05,5.91h-26.5l3.1-5.36V34.89l-3.1-5.5h26.5l3.05,5.9Z" transform="translate(302.45 -12.83)" fill="f0f0e0"/></svg></li>');
-  dice_roller.on( "click", async function() {
-    await game.fitdroller.FitDRollerPopup();
-  })
-  if( isNewerVersion( game.version, '9.220' ) ) {
-    html.children().first().append( dice_roller );
-  } else {
-    html.append( dice_roller );
-  }
+Hooks.on("getSceneControlButtons", ( controls ) => {
+  const tokenControlsIndex = controls.findIndex( c => c.name === "token" );
+  controls[ tokenControlsIndex ].tools.push( {
+    name: "roller",
+    title: "FitDRoller.RollTitleShort",
+    icon: "rollerSvg",
+    button: true,
+    onClick: async () => {
+      await game.fitdroller.FitDRollerPopup();
+    }
+  });
 });
 
 Hooks.once("init", () => {
+
+  // "N Times" loop for handlebars.
+  //  Block is executed N times starting from n=0.
+  //
+  // Usage:
+  // {{#times_from_0 10}}
+  //   <span>{{this}}</span>
+  // {{/times_from_0}}
+  Handlebars.registerHelper('times_from_0', function(n, block) {
+
+    let accum = '';
+    for (let i = 0; i <= n; ++i) {
+      accum += block.fn(i);
+    }
+    return accum;
+  });
 
   game.settings.register( moduleName, "backgroundColor", {
     "name": game.i18n.localize("FitDRoller.backgroundColorName"),
@@ -33,13 +49,31 @@ Hooks.once("init", () => {
     "type": String
   });
 
+  game.settings.register( moduleName, "useExtreme", {
+    "name": game.i18n.localize("FitDRoller.useExtremeName"),
+    "hint": game.i18n.localize("FitDRoller.useExtremeHint"),
+    "scope": "world",
+    "config": true,
+    "type": Boolean,
+    "default": true,
+    "requiresReload": true,
+    "onChange": function(){ game.fitdroller = new Roller(); }
+  });
+
   game.settings.register( moduleName, "maxDiceCount", {
     "name": game.i18n.localize("FitDRoller.maxDiceCountName"),
     "hint": game.i18n.localize("FitDRoller.maxDiceCountHint"),
     "scope": "world",
     "config": true,
-    "default": 10,
-    "type": Number
+    "default": 6,
+    "type": Number,
+    "range": {
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    "requiresReload": true,
+    "onChange": function(){ game.fitdroller = new Roller(); }
   });
 
   game.settings.register( moduleName, "defaultDiceCount", {
@@ -49,6 +83,12 @@ Hooks.once("init", () => {
     "config": true,
     "default": 2,
     "type": Number,
+    "range": {
+      "min": 0,
+      "max": 10,
+      "step": 1
+    },
+    "requiresReload": true,
     "onChange": function(){ game.fitdroller = new Roller(); }
   });
 
@@ -64,24 +104,28 @@ Hooks.once("init", () => {
       "desperate": game.i18n.localize("FitDRoller.PositionDesperate")
     },
     "default": "risky",
+    "requiresReload": true,
     "onChange": function(){ game.fitdroller = new Roller(); }
   });
 
   game.settings.register( moduleName, "defaultEffect", {
-    "name": game.i18n.localize("FitDRoller.defaultEffectName"),
-    "hint": game.i18n.localize("FitDRoller.defaultEffectHint"),
+    "name": game.i18n.localize( "FitDRoller.defaultEffectName" ),
+    "hint": game.i18n.localize( "FitDRoller.defaultEffectHint" ),
     "scope": "world",
     "config": true,
     "type": String,
     "choices": {
-      "extreme": game.i18n.localize("FitDRoller.EffectExtreme"),
-      "great": game.i18n.localize("FitDRoller.EffectGreat"),
-      "standard": game.i18n.localize("FitDRoller.EffectStandard"),
-      "limited": game.i18n.localize("FitDRoller.EffectLimited"),
-      "zero": game.i18n.localize("FitDRoller.EffectZero"),
+      "extreme": game.i18n.localize( "FitDRoller.EffectExtreme" ),
+      "great": game.i18n.localize( "FitDRoller.EffectGreat" ),
+      "standard": game.i18n.localize( "FitDRoller.EffectStandard" ),
+      "limited": game.i18n.localize( "FitDRoller.EffectLimited" ),
+      "zero": game.i18n.localize( "FitDRoller.EffectZero" ),
     },
     "default": "standard",
-    "onChange": function(){ game.fitdroller = new Roller(); }
+    "requiresReload": true,
+    "onChange": function() {
+      game.fitdroller = new Roller();
+    }
   });
 
   game.settings.register( moduleName, "newInterface", {
@@ -89,7 +133,7 @@ Hooks.once("init", () => {
     "hint": game.i18n.localize("FitDRoller.newInterfaceHint"),
     "scope": "client",
     "config": true,
-    "default": false,
+    "default": true,
     "type": Boolean
   });
 
@@ -107,6 +151,13 @@ Hooks.once("init", () => {
   });
 
   game.fitdroller = new Roller();
+  game.fitdroller.defaultPosition = game.settings.get( moduleName, "defaultPosition");
+  game.fitdroller.defaultEffect = game.settings.get( moduleName, "defaultEffect");
+  game.fitdroller.maxDice = game.settings.get( moduleName, "maxDiceCount" );
+  // prevent # of default dice from exceeding # of max dice
+  let dDice = game.settings.get( moduleName, "defaultDiceCount");
+  game.fitdroller.defaultDice = dDice > game.fitdroller.maxDice ? game.fitdroller.maxDice : dDice;
+  game.fitdroller.useExtreme = game.settings.get( moduleName, "useExtreme" );
 });
 
 console.log("FitDRoller | Forged in the Dark Dice Roller loaded");

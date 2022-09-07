@@ -9,27 +9,10 @@
 
   <h3>{{{localize "FitDRoller.RollNumberOfDice"}}}:</h3>
   <div class="rollRadio2" id="numberOfDice">
-    <input type="radio" id="0d" name="dice" value="0" />
-    <label for="0d" class="diceNumber bgRed">0</label>
-
-    <input type="radio" id="1d" name="dice" value="1" />
-    <label for="1d" class="diceNumber">1</label>
-
-    <input type="radio" id="2d" name="dice" value="2"/>
-    <label for="2d" class="diceNumber">2</label>
-
-    <input type="radio" id="3d" name="dice" value="3" />
-    <label for="3d" class="diceNumber">3</label>
-
-    <input type="radio" id="4d" name="dice" value="4" />
-    <label for="4d" class="diceNumber">4</label>
-
-    <input type="radio" id="5d" name="dice" value="5" />
-    <label for="5d" class="diceNumber">5</label>
-
-    <input type="radio" id="6d" name="dice" value="6" />
-    <label for="6d" class="diceNumber">6</label>
-
+    {{#times_from_0 numDice}}
+      <input type="radio" id="{{this}}d" name="dice" value="{{this}}" />
+      <label for="{{this}}d" class="diceNumber {{#if (eq this 0)}}bgRed{{/if}}">{{this}}</label>
+    {{/times_from_0}}
     <button  id="fortune-roll" name="fortune-roll" value="fortune" class="fortune-roll">{{{localize "FitDRoller.FortuneRoll"}}}</button>
   </div>
 
@@ -44,7 +27,9 @@
     <col class="fx-col">
     <col class="fx-col">
     <col class="fx-col">
-    <col class="fx-col">
+    {{#if useExtreme}}
+      <col class="fx-col">
+    {{/if}}
     </colgroup>
 
     <tr>
@@ -53,7 +38,9 @@
       <th><label>{{{localize "FitDRoller.EffectLimited"}}}</label></th>
       <th><label>{{{localize "FitDRoller.EffectStandard"}}}</label></th>
       <th><label>{{{localize "FitDRoller.EffectGreat"}}}</label></th>
-      <th><label>{{{localize "FitDRoller.EffectExtreme"}}}</label></th>
+      {{#if useExtreme}}
+        <th><label>{{{localize "FitDRoller.EffectExtreme"}}}</label></th>
+      {{/if}}
     </tr>
 
     <tr>
@@ -62,7 +49,9 @@
       <td><button type="button" name="bt02" value="bt02" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
       <td><button type="button" name="bt03" value="bt03" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
       <td><button type="button" name="bt04" value="bt04" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
-      <td><button type="button" name="bt05" value="bt05" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
+      {{#if useExtreme}}
+        <td><button type="button" name="bt05" value="bt05" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
+      {{/if}}
     </tr>
 
     <tr>
@@ -71,7 +60,9 @@
       <td><button type="button" name="bt07" value="bt07" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
       <td><button type="button" name="bt08" value="bt08" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
       <td><button type="button" name="bt09" value="bt09" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
-      <td><button type="button" name="bt10" value="bt10" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
+      {{#if useExtreme}}
+        <td><button type="button" name="bt10" value="bt10" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
+      {{/if}}
     </tr>
 
     <tr>
@@ -80,7 +71,9 @@
       <td><button type="button" name="bt12" value="bt12" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
       <td><button type="button" name="bt13" value="bt13" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
       <td><button type="button" name="bt14" value="bt14" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
-      <td><button type="button" name="bt15" value="bt15" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
+      {{#if useExtreme}}
+        <td><button type="button" name="bt15" value="bt15" class="rollButton" data-text={{{localize "FitDRoller.FitDRollerRollOverText"}}}></td>
+      {{/if}}
     </tr>
   </table>
 
