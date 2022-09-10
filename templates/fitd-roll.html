@@ -16,10 +16,19 @@
   {{#if (eq roll_status "critical-success")}}
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollCriticalSuccess"}}</div>
   <div class="description">
-    <p>{{{localize "FitDRoller.RollDoWithIncreasedEffect"}}}</p>
-
+    {{#if custom.criticalSuccess}}
+      <p>{{{custom.criticalSuccess}}}</p>
+    {{else}}
+      <p>{{{localize "FitDRoller.RollDoWithIncreasedEffect"}}}</p>
+    {{/if}}
 	{{#if (eq position "desperate")}}
-	<p>{{{localize "FitDRoller.RollXP"}}}</p>
+	  <p>
+      {{#if custom.desperateBonus}}
+        {{{custom.desperateBonus}}}
+      {{else}}
+        {{{localize "FitDRoller.RollXP"}}}
+      {{/if}}
+    </p>
 	{{/if}}
   </div>
   {{/if}}
@@ -27,10 +36,20 @@
   {{#if (eq roll_status "success")}}
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollSuccess"}}</div>
   <div class="description">
-    <p>{{{localize "FitDRoller.RollDo"}}}</p>
+    {{#if custom.success}}
+      <p>{{{custom.success}}}</p>
+    {{else}}
+      <p>{{{localize "FitDRoller.RollDo"}}}</p>
+    {{/if}}
 
 	{{#if (eq position "desperate")}}
-	<p>{{{localize "FitDRoller.RollXP"}}}</p>
+    <p>
+      {{#if custom.desperateBonus}}
+        {{{custom.desperateBonus}}}
+      {{else}}
+        {{{localize "FitDRoller.RollXP"}}}
+      {{/if}}
+    </p>
 	{{/if}}
   </div>
   {{/if}}
@@ -40,15 +59,33 @@
   <div class="description">
     <p>
       {{#if (eq position "controlled")}}
-      {{{localize "FitDRoller.RollPartialSuccessPositionControlled"}}}
+        {{#if custom.partialSuccessControlled}}
+          {{{custom.partialSuccessControlled}}}
+        {{else}}
+          {{{localize "FitDRoller.RollPartialSuccessPositionControlled"}}}
+        {{/if}}
       {{else if (eq position "risky")}}
-      {{{localize "FitDRoller.RollPartialSuccessPositionRisky"}}}
+        {{#if custom.partialSuccessRisky}}
+          {{{custom.partialSuccessRisky}}}
+        {{else}}
+          {{{localize "FitDRoller.RollPartialSuccessPositionRisky"}}}
+        {{/if}}
       {{else}}
-      {{{localize "FitDRoller.RollPartialSuccessPosition"}}}
+        {{#if custom.partialSuccessDesperate}}
+          {{{custom.partialSuccessDesperate}}}
+        {{else}}
+          {{{localize "FitDRoller.RollPartialSuccessPositionDesperate"}}}
+        {{/if}}
       {{/if}}
     </p>
 	{{#if (eq position "desperate")}}
-	<p>{{{localize "FitDRoller.RollXP"}}}</p>
+    <p>
+      {{#if custom.desperateBonus}}
+        {{{custom.desperateBonus}}}
+      {{else}}
+        {{{localize "FitDRoller.RollXP"}}}
+      {{/if}}
+    </p>
 	{{/if}}
   </div>
   {{/if}}
@@ -58,24 +95,59 @@
   <div class="description">
     <p>
       {{#if (eq position "controlled")}}
-      {{{localize "FitDRoller.RollFailurePositionControlled"}}}
+        {{#if custom.failureControlled}}
+          {{{custom.failureControlled}}}
+        {{else}}
+          {{{localize "FitDRoller.RollFailurePositionControlled"}}}
+        {{/if}}
       {{else if (eq position "risky")}}
-      {{{localize "FitDRoller.RollFailurePositionRisky"}}}
+        {{#if custom.failureRisky}}
+          {{{custom.failureRisky}}}
+        {{else}}
+          {{{localize "FitDRoller.RollFailurePositionRisky"}}}
+        {{/if}}
       {{else}}
-      {{{localize "FitDRoller.RollFailurePositionDesperate"}}}
+        {{#if custom.failureDesperate}}
+          {{{custom.failureDesperate}}}
+        {{else}}
+          {{{localize "FitDRoller.RollFailurePositionDesperate"}}}
+        {{/if}}
       {{/if}}
     </p>
 	{{#if (eq position "desperate")}}
-	<p>{{{localize "FitDRoller.RollXP"}}}</p>
+	  <p>
+      {{#if custom.desperateBonus}}
+        {{{custom.desperateBonus}}}
+      {{else}}
+        {{{localize "FitDRoller.RollXP"}}}
+      {{/if}}
+    </p>
 	{{/if}}
   </div>
+  {{/if}}
+
+  {{#if (eq roll_status "extreme")}}
+    <div class="die {{roll_status}}">{{localize "FitDRoller.RollExtremeEffect"}}</div>
+    <div class="description">
+      <p>
+        {{#if custom.fortuneExtreme}}
+          {{{custom.fortuneExtreme}}}
+        {{else}}
+          {{{localize "FitDRoller.RollExtremeEffectDescription"}}}
+        {{/if}}
+      </p>
+    </div>
   {{/if}}
 
   {{#if (eq roll_status "great")}}
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollGreatEffect"}}</div>
   <div class="description">
     <p>
-      {{{localize "FitDRoller.RollGreatEffectDescription"}}}
+      {{#if custom.fortuneGreat}}
+        {{{custom.fortuneGreat}}}
+      {{else}}
+        {{{localize "FitDRoller.RollGreatEffectDescription"}}}
+      {{/if}}
     </p>
   </div>
   {{/if}}
@@ -84,7 +156,11 @@
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollStandardEffect"}}</div>
   <div class="description">
     <p>
-      {{{localize "FitDRoller.RollStandardEffectDescription"}}}
+      {{#if custom.fortuneStandard}}
+        {{{custom.fortuneStandard}}}
+      {{else}}
+        {{{localize "FitDRoller.RollStandardEffectDescription"}}}
+      {{/if}}
     </p>
   </div>
   {{/if}}
@@ -93,7 +169,11 @@
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollLimitedEffect"}}</div>
   <div class="description">
     <p>
-      {{{localize "FitDRoller.RollLimitedEffectDescription"}}}
+      {{#if custom.fortuneLimited}}
+        {{{custom.fortuneLimited}}}
+      {{else}}
+        {{{localize "FitDRoller.RollLimitedEffectDescription"}}}
+      {{/if}}
     </p>
   </div>
   {{/if}}
@@ -102,7 +182,11 @@
   <div class="die {{roll_status}}">{{localize "FitDRoller.RollZeroEffect"}}</div>
   <div class="description">
     <p>
-      {{{localize "FitDRoller.RollZeroEffectDescription"}}}
+      {{#if custom.fortuneZero}}
+        {{{custom.fortuneZero}}}
+      {{else}}
+        {{{localize "FitDRoller.RollZeroEffectDescription"}}}
+      {{/if}}
     </p>
   </div>
   {{/if}}

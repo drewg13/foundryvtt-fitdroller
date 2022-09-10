@@ -1,0 +1,88 @@
+<form autocomplete="off" onsubmit="event.preventDefault();" class="custom-messages-config-form">
+
+  <h2 class="custom-messages-form-title">{{{localize "FitDRoller.customMessagesHeader"}}}</h2>
+  <p class="sheet-config-notes">{{{localize "FitDRoller.customMessagesNotes"}}}</p>
+  <p class="sheet-config-notes">{{{localize "FitDRoller.customMessagesNotes2"}}}</p>
+
+  <section class="custom-messages-config-editor">
+    <h3>{{localize "FitDRoller.RollCriticalSuccess"}}</h3>
+      <textarea name="criticalSuccess" placeholder="{{localize "FitDRoller.RollDoWithIncreasedEffect"}}">
+        {{~ criticalSuccess ~}}
+      </textarea>
+
+    <h3>{{localize "FitDRoller.RollSuccess"}}</h3>
+    <textarea name="success" placeholder="{{localize "FitDRoller.RollDo"}}">
+      {{~ success ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.RollPartialSuccess"}} - {{localize "FitDRoller.PositionControlled"}}</h3>
+    <textarea name="partialSuccessControlled" placeholder="{{localize "FitDRoller.RollPartialSuccessPositionControlled"}}">
+      {{~ partialSuccessControlled ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.RollPartialSuccess"}} - {{localize "FitDRoller.PositionRisky"}}</h3>
+    <textarea name="partialSuccessRisky" placeholder="{{localize "FitDRoller.RollPartialSuccessPositionRisky"}}">
+      {{~ partialSuccessRisky ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.RollPartialSuccess"}} - {{localize "FitDRoller.PositionDesperate"}}</h3>
+    <textarea name="partialSuccessDesperate" placeholder="{{localize "FitDRoller.RollPartialSuccessPositionDesperate"}}">
+      {{~ partialSuccessDesperate ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.RollFailure"}} - {{localize "FitDRoller.PositionControlled"}}</h3>
+    <textarea name="failureControlled" placeholder="{{localize "FitDRoller.RollFailurePositionControlled"}}">
+      {{~ failureControlled ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.RollFailure"}} - {{localize "FitDRoller.PositionRisky"}}</h3>
+    <textarea name="failureRisky" placeholder="{{localize "FitDRoller.RollFailurePositionRisky"}}">
+      {{~ failureRisky ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.RollFailure"}} - {{localize "FitDRoller.PositionDesperate"}}</h3>
+    <textarea name="failureDesperate" placeholder="{{localize "FitDRoller.RollFailurePositionDesperate"}}">
+      {{~ failureDesperate ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.DesperateBonus"}}</h3>
+    <textarea name="desperateBonus" placeholder="{{localize "FitDRoller.RollXP"}}">
+      {{~ desperateBonus ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.FortuneRoll"}} - {{localize "FitDRoller.RollExtremeEffect"}}</h3>
+    <textarea name="fortuneExtreme" placeholder="{{localize "FitDRoller.RollExtremeEffectDescription"}}">
+      {{~ fortuneExtreme ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.FortuneRoll"}} - {{localize "FitDRoller.RollGreatEffect"}}</h3>
+    <textarea name="fortuneGreat" placeholder="{{localize "FitDRoller.RollGreatEffectDescription"}}">
+      {{~ fortuneGreat ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.FortuneRoll"}} - {{localize "FitDRoller.RollStandardEffect"}}</h3>
+    <textarea name="fortuneStandard" placeholder="{{localize "FitDRoller.RollStandardEffectDescription"}}">
+      {{~ fortuneStandard ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.FortuneRoll"}} - {{localize "FitDRoller.RollLimitedEffect"}}</h3>
+    <textarea name="fortuneLimited" placeholder="{{localize "FitDRoller.RollLimitedEffectDescription"}}">
+      {{~ fortuneLimited ~}}
+    </textarea>
+
+    <h3>{{localize "FitDRoller.FortuneRoll"}} - {{localize "FitDRoller.RollZeroEffect"}}</h3>
+    <textarea name="fortuneZero" placeholder="{{localize "FitDRoller.RollZeroEffectDescription"}}">
+      {{~ fortuneZero ~}}
+    </textarea>
+  </section>
+
+  <div class="form-group">
+    <button type="submit" name="submit">
+      <i class="fas fa-save"></i> {{localize 'PERMISSION.Submit'}}
+    </button>
+
+    <button type="button" name="reset">
+      <i class="fas fa-sync"></i> {{localize 'PERMISSION.Reset'}}
+    </button>
+  </div>
+</form>

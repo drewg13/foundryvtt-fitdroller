@@ -102,7 +102,6 @@ export default class Roller {
       } ).render( true );
     } else {
       let htmlContent = await renderTemplate( "modules/" + this.moduleName + "/templates/roll-dialog.html", { numDice: game.fitdroller.maxDice, useExtreme: game.fitdroller.useExtreme } );
-
       htmlContent = new DOMParser().parseFromString(htmlContent, "text/html");
       htmlContent.getElementById( game.fitdroller.defaultDice + "d" ).setAttribute("checked", "");
       htmlContent = htmlContent.querySelector("form").parentElement.innerHTML;
@@ -302,8 +301,8 @@ export default class Roller {
       default:
         effect_localize = 'FitDRoller.EffectStandard';
     }
-
-    const result = await renderTemplate("modules/" + this.moduleName + "/templates/fitd-roll.html", { rolls, roll_status, attribute, position, position_localize, effect, effect_localize, zeromode, color, purpose });
+    const customMessages = await game.settings.get( this.moduleName, "customMessages" );
+    const result = await renderTemplate("modules/" + this.moduleName + "/templates/fitd-roll.html", { rolls, roll_status, attribute, position, position_localize, effect, effect_localize, zeromode, color, purpose, custom: customMessages });
 
     const messageData = {
       speaker,
@@ -377,6 +376,7 @@ export default class Roller {
     let roll_status;
     let use_die;
     let prev_use_die;
+    let prev_prev_use_die;
 
     if (zeromode) {
       use_die = sorted_rolls[0];
@@ -384,6 +384,9 @@ export default class Roller {
       use_die = sorted_rolls[sorted_rolls.length - 1];
       if (sorted_rolls.length - 2 >= 0) {
         prev_use_die = sorted_rolls[sorted_rolls.length - 2]
+        if (sorted_rolls.length - 3 >= 0) {
+          prev_prev_use_die = sorted_rolls[sorted_rolls.length - 3]
+        }
       }
     }
 
@@ -393,7 +396,11 @@ export default class Roller {
     } else if (use_die === 6) {
       // 6,6 - critical success
       if (prev_use_die && prev_use_die === 6) {
-        roll_status = "great";
+        if ( prev_prev_use_die && prev_prev_use_die === 6 ) {
+          roll_status = "extreme";
+        } else {
+          roll_status = "great";
+        }
       } else {
         roll_status = "standard";
       }

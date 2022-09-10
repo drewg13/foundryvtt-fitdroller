@@ -10,16 +10,15 @@
     {"name": "Mestre Digital"},
     {"name": "Gus"}
   ],
-  "version": "1.6.2",
-  "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "10.284",
+  "version": "1.7.0",
+  "minimumCoreVersion": 10,
   "compatibility": {
-    "minimum": "0.7.5",
-    "verified": "10.284"
+    "minimum": 10,
+    "verified": "10.285"
   },
   "url": "https://github.com/drewg13/foundryvtt-fitdroller",
   "manifest": "https://raw.githubusercontent.com/drewg13/foundryvtt-fitdroller/main/module.json",
-  "download": "https://github.com/drewg13/foundryvtt-fitdroller/archive/v1.6.2.zip",
+  "download": "https://github.com/drewg13/foundryvtt-fitdroller/archive/v1.7.0.zip",
   "bugs": "https://github.com/drewg13/foundryvtt-fitdroller/issues",
   "styles": ["styles/fitdroller.css"],
   "esmodules": ["scripts/main.js"],

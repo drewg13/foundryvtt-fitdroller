@@ -34,7 +34,7 @@
   "FitDRoller.RollDo": "You do it.",
   "FitDRoller.RollPartialSuccessPositionControlled": "You hesitate. Withdraw and try a different approach, or else do it with a minor consequence: a <strong>minor complication</strong> occurs, you have <strong>reduced effect</strong>, you suffer <strong>lesser harm</strong>, you end up in a <strong>risky</strong> position.",
   "FitDRoller.RollPartialSuccessPositionRisky": "You do it, but there’s a consequence: you suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you have <strong>reduced effect</strong>, you end up in a <strong>desperate</strong> position.",
-  "FitDRoller.RollPartialSuccessPosition": "You do it, but there’s a consequence: you suffer <strong>severe harm</strong>, a <strong>serious complication</strong> occurs, you have <strong>reduced effect</strong>.",
+  "FitDRoller.RollPartialSuccessPositionDesperate": "You do it, but there’s a consequence: you suffer <strong>severe harm</strong>, a <strong>serious complication</strong> occurs, you have <strong>reduced effect</strong>.",
   "FitDRoller.RollFailurePositionControlled": "You falter. Press on by seizing a <strong>risky</strong> opportunity, or <strong>withdraw</strong> and try a different approach.",
   "FitDRoller.RollFailurePositionRisky": "Things go badly. You suffer <strong>harm</strong>, a <strong>complication</strong> occurs, you end up in a <strong>desperate</strong> position, you <strong>lose this opportunity</strong> for action.",
   "FitDRoller.RollFailurePositionDesperate": "It’s the worst outcome. You suffer <strong>severe harm</strong>, a <strong>serious complication occurs</strong>, you <strong>lose this opportunity</strong> for action.",
@@ -77,5 +77,16 @@
 
   "FitDRoller.newInterface": "New Interface",
   "FitDRoller.newInterfaceHint": "Use new GUI interface for roller",
-  "FitDRoller.RollPurpose": "Roll Purpose"
+  "FitDRoller.RollPurpose": "Roll Purpose",
+
+  "FitDRoller.DesperateBonus": "Additional Message for Desperate Position Rolls",
+  "FitDRoller.customMessagesMenu": "Custom Roll Result Messages",
+  "FitDRoller.customMessagesButton": "Edit Messages",
+  "FitDRoller.customMessagesHint": "Use this menu to edit the various messages in the chat results",
+  "FitDRoller.customMessagesHeader": "Custom Roll Result Message Editor",
+  "FitDRoller.customMessagesNotes": "Use this interface to edit the messages displayed in the chat messages based in the roll results.  Basic HTML tags may be manually added to the fields.",
+  "FitDRoller.customMessagesNotes2": "In order to revert to the default messages, use the Reset Defaults button below (which will clear all fields in this dialog) or delete all content from a specific field.",
+  "FitDRoller.ResetDefaults": "Revert all to defaults?",
+  "FitDRoller.ResetDefaultsWarning": "This will clear all fields in this menu dialog and revert to the default messages.",
+  "FitDRoller.ResetDefaultsDone": "All Custom Messages reverted to defaults."
 }

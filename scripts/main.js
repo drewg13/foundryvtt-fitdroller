@@ -137,6 +137,23 @@ Hooks.once("init", () => {
     "type": Boolean
   });
 
+  game.settings.registerMenu( moduleName, "customMessagesMenu", {
+    name: "FitDRoller.customMessagesMenu",
+    label: "FitDRoller.customMessagesButton",
+    hint: "FitDRoller.customMessagesHint",
+    icon: "fas fa-envelope-open-text",
+    type: CustomMessagesConfig,
+    restricted: true
+  });
+
+  game.settings.register( moduleName, "customMessages", {
+    "name": "Custom Messages",
+    "scope": "world",
+    "config": false,
+    "default": {},
+    "type": Object
+  });
+
   game.keybindings.register( moduleName, "FitDRollerShortcut", {
     name: game.i18n.localize("FitDRoller.FitDRollerShortcutName"),
     hint: game.i18n.localize("FitDRoller.FitDRollerShortcutHint"),
@@ -159,5 +176,69 @@ Hooks.once("init", () => {
   game.fitdroller.defaultDice = dDice > game.fitdroller.maxDice ? game.fitdroller.maxDice : dDice;
   game.fitdroller.useExtreme = game.settings.get( moduleName, "useExtreme" );
 });
+
+/**
+ * An application for configuring the permissions which are available to each User role.
+ */
+class CustomMessagesConfig extends FormApplication {
+
+  /** @override */
+  static get defaultOptions() {
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      title: game.i18n.localize("FitDRoller.customMessagesMenu"),
+      id: "custom-messages-config",
+      classes: ["fitdroller", "custom-messages-config"],
+      template: "modules/foundryvtt-fitdroller/templates/message-dialog.html",
+      width: 660,
+      height: "auto",
+      resizable: true,
+      closeOnSubmit: true
+    });
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  async getData(options) {
+    return game.settings.get( moduleName, "customMessages" );
+  }
+
+  /* -------------------------------------------- */
+  /*  Event Listeners and Handlers                */
+  /* -------------------------------------------- */
+
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.find('button[name="reset"]').click(this._onResetDefaults.bind(this));
+  }
+
+  /* -------------------------------------------- */
+
+  /**
+   * Handle button click to reset default settings
+   * @param event {Event}   The initial button click event
+   * @private
+   */
+  async _onResetDefaults(event) {
+    event.preventDefault();
+    const confirm = await Dialog.confirm({
+      title: game.i18n.localize("FitDRoller.ResetDefaults"),
+      content: `<p>${game.i18n.localize("FitDRoller.ResetDefaultsWarning")}</p>`
+    });
+    if ( !confirm ) return;
+    await game.settings.set( moduleName, "customMessages", {});
+    ui.notifications.info(game.i18n.localize('FitDRoller.ResetDefaultsDone'));
+    return this.render();
+  }
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  async _updateObject(event, formData) {
+    const customMessages = foundry.utils.expandObject(formData);
+    await game.settings.set(moduleName, "customMessages", customMessages);
+  }
+}
 
 console.log("FitDRoller | Forged in the Dark Dice Roller loaded");
