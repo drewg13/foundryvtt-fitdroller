@@ -1,7 +1,7 @@
 # Forged in the Dark Roller
 <p>
   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/drewg13/foundryvtt-fitdroller">
-  <img alt="GitHub downloads (latest)" src="https://img.shields.io/github/downloads/drewg13/foundryvtt-fitdroller/latest/system.zip">
+  <img alt="GitHub downloads (latest)" src="https://img.shields.io/github/downloads/drewg13/foundryvtt-fitdroller/latest/module.zip">
 </p>
 
 A generic dice roller for Forged in the Dark games in FoundryVTT, based on code by Megastruktur
