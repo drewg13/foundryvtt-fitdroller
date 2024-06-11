@@ -177,9 +177,7 @@ Hooks.once("init", () => {
   game.fitdroller.useExtreme = game.settings.get( moduleName, "useExtreme" );
 });
 
-/**
- * An application for configuring the permissions which are available to each User role.
- */
+
 class CustomMessagesConfig extends FormApplication {
 
   /** @override */

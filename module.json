@@ -14,7 +14,7 @@
   "minimumCoreVersion": 10,
   "compatibility": {
     "minimum": 10,
-    "verified": "11.315"
+    "verified": 12.327
   },
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",

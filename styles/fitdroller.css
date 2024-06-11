@@ -225,7 +225,11 @@
   background-image: url(../icons/d6-grey.svg) !important;
 }
 /*Alternative*/
-
+.dice-tooltip .dice-rolls .roll.method {
+  font-size: var(--font-size-10);
+  background: transparent;
+  min-width: auto;
+}
 .svg-icon {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

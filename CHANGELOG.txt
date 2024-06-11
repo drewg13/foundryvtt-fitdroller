@@ -25,3 +25,5 @@
 1.6.2  Additional V10 fixes, new interface fixes, Roll Purpose field label correction
 
 1.7.0  V10 only release!, Fix position of icon in roller button on sidebar, move button to a Token Layer sub-control, Make new interface # of dice follow setting, change dice setting to range sliders, set new interface as default, add setting for Extreme Effect, add Custom Messages and Editor menu
+
+1.8.0  Fix Dice-So-Nice and add Roll method indicators

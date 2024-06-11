@@ -255,6 +255,12 @@ export default class Roller {
     let rolls = [];
 
     rolls = (r.terms)[0].results;
+    let method = {};
+    method.type = (r.terms)[0].method;
+    if( method.type ) {
+      method.icon = CONFIG.Dice.fulfillment.methods[method.type].icon;
+      method.label = CONFIG.Dice.fulfillment.methods[method.type].label;
+    }
 
     // Retrieve Roll status.
     let roll_status;
@@ -302,13 +308,13 @@ export default class Roller {
         effect_localize = 'FitDRoller.EffectStandard';
     }
     const customMessages = await game.settings.get( this.moduleName, "customMessages" );
-    const result = await renderTemplate("modules/" + this.moduleName + "/templates/fitd-roll.html", { rolls, roll_status, attribute, position, position_localize, effect, effect_localize, zeromode, color, purpose, custom: customMessages });
+    const result = await renderTemplate("modules/" + this.moduleName + "/templates/fitd-roll.html", { rolls, method, roll_status, attribute, position, position_localize, effect, effect_localize, zeromode, color, purpose, custom: customMessages });
 
     const messageData = {
       speaker,
       content: result,
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      roll: r
+      rolls: [r]
     };
     if (game.majorVersion > 7) {
       return CONFIG.ChatMessage.documentClass.create(messageData, {});
