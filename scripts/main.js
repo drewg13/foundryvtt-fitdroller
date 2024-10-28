@@ -6,16 +6,28 @@ Hooks.once("ready", () => {
 });
 
 Hooks.on("getSceneControlButtons", ( controls ) => {
-  const tokenControlsIndex = controls.findIndex( c => c.name === "token" );
-  controls[ tokenControlsIndex ].tools.push( {
-    name: "roller",
-    title: "FitDRoller.RollTitleShort",
-    icon: "rollerSvg",
-    button: true,
-    onClick: async () => {
-      await game.fitdroller.FitDRollerPopup();
-    }
-  });
+  if( game.release.generation >= 13 ){
+    controls.tokens.tools.fitdroller = {
+      name: "fitdroller",
+      title: "FitDRoller.RollTitleShort",
+      icon: "rollerSvg",
+      button: true,
+      onChange: async() => {
+        await game.fitdroller.FitDRollerPopup();
+      }
+    };
+  } else {
+    const tokenControlsIndex = controls.findIndex( c => c.name === "token" );
+    controls[tokenControlsIndex].tools.push( {
+      name: "roller",
+      title: "FitDRoller.RollTitleShort",
+      icon: "rollerSvg",
+      button: true,
+      onClick: async() => {
+        await game.fitdroller.FitDRollerPopup();
+      }
+    });
+  }
 });
 
 Hooks.once("init", () => {

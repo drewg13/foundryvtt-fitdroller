@@ -204,16 +204,6 @@ export default class Roller {
    * @param {string} purpose purpose
    */
   async FitDRoller( attribute = "", dice_amount = game.fitdroller.defaultDice, position = game.fitdroller.defaultPosition, effect = game.fitdroller.defaultEffect, purpose = "" ){
-    let versionParts;
-    if( game.version ) {
-      versionParts = game.version.split( '.' );
-      game.majorVersion = parseInt( versionParts[0] );
-      game.minorVersion = parseInt( versionParts[1] );
-    } else {
-      versionParts = game.data.version.split( '.' );
-      game.majorVersion = parseInt( versionParts[1] );
-      game.minorVersion = parseInt( versionParts[2] );
-    }
 
     let zeromode = false;
     if (dice_amount < 0) { dice_amount = 0; }
@@ -221,12 +211,9 @@ export default class Roller {
 
     const r = new Roll(`${dice_amount}d6`, {});
 
-    if (game.majorVersion > 7) {
-      await r.evaluate({async: true});
-    } else {
-      r.roll();
-    }
-    return await this.showChatRollMessage( r, zeromode, attribute, position, effect, purpose );
+
+   await r.evaluate({async: true});
+   return await this.showChatRollMessage( r, zeromode, attribute, position, effect, purpose );
   }
 
   /**
@@ -240,16 +227,6 @@ export default class Roller {
    * @param {string} purpose purpose
    */
   async showChatRollMessage(r, zeromode, attribute = "", position = "", effect = "", purpose = "") {
-    let versionParts;
-    if( game.version ) {
-      versionParts = game.version.split( '.' );
-      game.majorVersion = parseInt( versionParts[0] );
-      game.minorVersion = parseInt( versionParts[1] );
-    } else {
-      versionParts = game.data.version.split( '.' );
-      game.majorVersion = parseInt( versionParts[1] );
-      game.minorVersion = parseInt( versionParts[2] );
-    }
 
     const speaker = ChatMessage.getSpeaker();
     let rolls = [];
@@ -316,11 +293,8 @@ export default class Roller {
       type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       rolls: [r]
     };
-    if (game.majorVersion > 7) {
-      return CONFIG.ChatMessage.documentClass.create(messageData, {});
-    } else {
-      return CONFIG.ChatMessage.entityClass.create(messageData, {});
-    }
+
+    return CONFIG.ChatMessage.documentClass.create(messageData, {});
   }
 
   /**

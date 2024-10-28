@@ -427,7 +427,8 @@
   box-shadow: 0 0 6px var(--redmed);
 }
 
-* #controls li.control-tool i.rollerSvg::before {
+* #controls li.control-tool i.rollerSvg::before,
+* .rollerSvg.button::before {
   background-image:  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='svg-icon' viewBox='0 0 72.18 72.18'><polygon points='45.81 22.51 46.72 24.21 46.72 47.97 45.77 49.72 56.07 49.72 56.92 47.87 56.92 24.36 55.97 22.51 45.81 22.51' fill='%23c9c7b8'/><path d='M-235.33,12.83h-62a5.07,5.07,0,0,0-5.07,5.06V79.94A5.07,5.07,0,0,0-297.38,85h62a5.06,5.06,0,0,0,5.06-5.07v-62A5.06,5.06,0,0,0-235.33,12.83Zm-34.15,25.66-5.45-3.15H-285l.9,1.7v7.85h3.4l5.9-3.35v12.6l-5.95-3.3h-3.35v11.9l3.1,5.71h-14.31l3.1-5.71V34.89l-3.1-5.5h25.86Zm32.1,24-3.05,5.91h-26.5l3.1-5.36V34.89l-3.1-5.5h26.5l3.05,5.9Z' transform='translate(302.45 -12.83)' fill='%23c9c7b8'/></svg>");
   display: inline-block;
   content: '';
@@ -436,5 +437,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   position: relative;
+}
+
+* #controls li.control-tool i.rollerSvg::before {
   top: 4px;
 }

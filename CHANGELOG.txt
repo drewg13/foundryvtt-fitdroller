@@ -31,3 +31,5 @@
 1.7.2  Testing release, no functional changes
 
 1.8.0  Fix Dice-So-Nice and add Roll method indicators
+
+1.9.0  Remove legacy code, updates for V13
