@@ -290,7 +290,7 @@ export default class Roller {
     const messageData = {
       speaker,
       content: result,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      /*type: CONST.CHAT_MESSAGE_TYPES.ROLL,*/
       rolls: [r]
     };
 
